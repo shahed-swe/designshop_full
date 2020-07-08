@@ -96,7 +96,7 @@
                         <div class="layer">
                             <span class="text-white">New Arrivals</span>
                             <h2 class="text-white">{{i.title}}</h2>
-                            <a href="# " class="site-btn-new">SHOP NOW</a>
+                            <a href="{% url 'product_details' slug=i.slug %}" class="site-btn-new">SHOP NOW</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -124,7 +124,7 @@
                 <div class="categories-menu-desk">
                     <ul class="#" id="all_cat">
                         <form method="POST" class="navigate_cat">{% csrf_token %}
-                            <li><a id="all-prod" class="all" href="#">All Products</a><span class="float-right">{{number_prod}}</span></li>
+                            <li><a id="all-prod" class="all" href="#">All Products</a><span class="float-right number_prod">{{number_prod}}</span></li>
 
                         </form>
                     </ul>
@@ -148,13 +148,14 @@
                                 <div class="product-item ">
                                     <div class="pi-pic ">
                                         <!-- {%if i.img_one%} -->
-                                        <img id="product_img" src="{{i.img_one.url}}" alt=" ">
+                                        <a href="{% url 'product_details' slug=i.slug %}"><img id="product_img" src="{{i.img_one.url}}" alt=" "></a>
                                         <!-- image included -->
                                         <!-- {%endif%} -->
                                         <div class="card-img-overlay">
                                             <a href="{% url 'product_details' slug=i.slug %}">
                                                 <h4 id="category" style="color:#09d081;font-size:15px">{{i.category}}</h4>
                                             </a>
+
                                         </div>
                                         <div class="pi-links ">
                                             <a href="#" class="add-card update-cart swal" data-product="{{i.id}}" data-action="add"><i class="flaticon-bag "></i><span>ADD TO CART</span></a>
@@ -236,12 +237,6 @@
                     message: "Admin Can't Shop From Here",
                     title: 'Hello' + ' ' + user,
                     priority: 'danger'
-                });
-            } else {
-                $.toaster({
-                    message: 'Item has been added',
-                    title: 'Hello' + ' ' + user,
-                    priority: 'success'
                 });
             }
         })

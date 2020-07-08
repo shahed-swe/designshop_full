@@ -31,7 +31,7 @@
                 <h2 class="p-title">{{i.title}}</h2>
                 <h3 class="p-price">${{i.price}}</h3>
                 <h4 class="p-stock">Available: <span>In Stock</span></h4>
-                <a href="#" class="site-btn">Add To Cart</a>
+                <a href="#" class="site-btn update-cart swal" data-product="{{i.id}}" data-action="add">Add To Cart</a>
                 <div id="accordion" class="accordion-area">
                     <div class="panel">
                         <div class="panel-header" id="headingOne">
@@ -86,8 +86,51 @@
 <!-- block content ends -->
 {% endblock main_content %}
 <!-- script block -->
-{%block scripts%}
-<!-- scripts starts here -->
+{% block scripts %}
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src="http://scottoffen.github.io/jquery.toaster/jquery.toaster.js"></script>
+<script src="{%static 'front/js/store.js'%}"></script>
+<script src="{%static 'front/js/cart.js'%}"></script>
+<script type="text/javascript">
+    var user = '{{request.user}}';
+    var status = '{{request.user.is_staff}}'
 
-<!-- script ends here -->
-{%endblock scripts%}
+    function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+
+    $(function() {
+        $('.swal').on('click', function() {
+            console.log('user', user);
+            if (user == "AnonymousUser" && status == "False") {
+                $.toaster({
+                    message: 'you are not logged in yet',
+                    title: 'Hello' + ' ' + user,
+                    priority: 'danger'
+                });
+            } else if (status == "True") {
+                $.toaster({
+                    message: "Admin Can't Shop From Here",
+                    title: 'Hello' + ' ' + user,
+                    priority: 'danger'
+                });
+            }
+        })
+    })
+</script>
+<!-- end of javascript code -->
+{% endblock scripts %}
+<!-- scripts block stop here -->

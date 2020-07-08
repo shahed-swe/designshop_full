@@ -72,15 +72,16 @@ def category_count(request):
 # for getting category data
 def get_category_data(request):
     text = request.POST.get('text')
-    # print(text)
+    print(text)
     data = my_custom_sql(text)
     # query data
     count = counting(text)
     # counting data
-    prod = len(store.objects.all()) #counting how many products are there
+    prod = len(store.objects.all())  # counting how many products are there
     data = list(data)
     data.append(prod)
     data.append(count)
+    print(data)
     return JsonResponse(data, safe=False)
     # return render(request, 'front/store.html', {'data':data})
 

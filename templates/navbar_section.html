@@ -16,11 +16,10 @@
                 <li><a class="atn " href="/package">Package</a></li>
                 <li><a class="atn " href="/store">Store</a></li>
                 <li><a class="atn " href="#">Custom</a>
-                <li><a class="atn " href="/about">About</a></li>
-                {% comment %}
-                <li><a class="atn " href="#">{{user}}</a></li> {% endcomment %} 
-                {% if user.is_authenticated %}
-                
+                    <li><a class="atn " href="/about">About</a></li>
+                    {% comment %}
+                    <li><a class="atn " href="#">{{user}}</a></li> {% endcomment %} {% if user.is_authenticated %}
+
                 </li>
                 <li class="shopping-card float-right">
                     <a href="/cart" class="flaticon-bag" style="color:white;font-size:23px;padding-top:7px">
@@ -32,7 +31,7 @@
                     <ul class="sub-menu">
                         <li class=""><a href="#">Profile</a></li>
                         <li class=""><a href="/logout">Logout</a></li>
-                        
+
                     </ul>
                 </li>
 

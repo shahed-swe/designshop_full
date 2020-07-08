@@ -27,7 +27,6 @@ for (let i = 0; i < updatebtn.length; i++) {
 
 
 function updateUserOrder(productId, action) {
-    console.log('User is logged in, sending data...');
     var url = '/update_item/';
     fetch(url, {
             method: 'POST',
@@ -44,7 +43,6 @@ function updateUserOrder(productId, action) {
             return response.json()
         })
         .then((data) => {
-            // console.log('data:', data);
             location.reload();
         })
 }
