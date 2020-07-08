@@ -1,0 +1,159 @@
+<!-- extends base html -->
+{% extends "user_base.html" %}
+<!-- end of base html -->
+<!-- load static file -->
+{% load static %}
+<!-- static file loaded -->
+<!-- main block content started -->
+{% block main_content %}
+<!-- main elements -->
+<style>
+    .add-section {
+        margin-top: 65px;
+        margin-bottom: 65px;
+    }
+    
+    .add-section .container .banner {
+        border-radius: 6px;
+        -webkit-box-shadow: inset 200px 30px 237px -1px rgba(0, 0, 0, 0.74);
+        -moz-box-shadow: inset 200px 30px 237px -1px rgba(0, 0, 0, 0.74);
+        box-shadow: inset 200px 30px 237px -1px rgba(0, 0, 0, 0.74);
+    }
+</style>
+<!-- main header -->
+<section class="main-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <h1 class="text-white" style="font-size: 60px;padding-bottom:15px">Package System</h1>
+                <p class="text-white">Choose your loadout from our collection of ready-to-use graphics. Premium overlays, alerts, and templates - with new designs added weekly.</p>
+                <p class="text-white">Browse designs for Twitch, Mixer, YouTube, and Facebook Gaming. Enjoy multi-platform support across Streamlabs, StreamElements, and OBS Studio.</p>
+                <p class="text-white">Just download, set up, and stream.</p>
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <img class="img-fluid w-75 header-image" src="{% static 'front/img/package-first.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- header end -->
+
+<!-- package add section -->
+<section class="add-section">
+    <div class="container custom-con">
+        <div class="banner set-bg" data-setbg="{% static 'front/img/product-part.png'%}">
+            <div class="layer">
+                <div class="tag-new text-white">NEW</div>
+                <span class="text-white">New Arrivals</span>
+                <h2 class="text-white">FIFA STREAMER</h2>
+                <a href="# " class="site-btn-new">SHOP NOW</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- package add section end -->
+
+<!-- package section -->
+<section class="three-col-package">
+    <div class="container">
+        <div class="row">
+            {% for p in package %}
+            <!-- condition starts here -->
+            {% if p.pack_name == 'Essential'%}
+            <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 card first-card">
+                <div class="card new_card" style="padding:24px">
+                    <h4 style="color:#d6a377">{{p.pack_name}}</h4>
+                    <p>Forms with a person touch</p>
+                    <h1>
+                        <span id="change_price">{{p.price_monthly}}</span> USD <span class="move">/mo</span>
+                    </h1>
+                    <div class="row">
+                        <div class="col-6">
+                            Billed <span id="change_div">Monthly</span>
+                        </div>
+                        <div class="col-6">
+                            <button class="new-btn" id="show_bill">Show <span id="change_data">Yearly</span></button>
+                        </div>
+                    </div>
+                    <button class="btn big-btn btn-block"><p>Get Essentials Yearly</p></button>
+                    <ul class="prem_section_ul">
+                        <li class="pos">{{p.pack_sec_one}}</li>
+                        <li class="pos">{{p.pack_sec_two}}</li>
+                        <li class="pos">{{p.pack_sec_three}}</li>
+                        <li class="pos">{{p.pack_sec_four}}</li>
+                    </ul>
+                </div>
+            </div>
+            {% elif p.pack_name == 'Professional'%}
+            <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 card card-color">
+                <p class="text-center" style="color:#4b7e7d;text-align: justify;margin-top:20px;font-size:20px">Same price as Essentials when you pay for the year</p>
+                <div class="card" style="padding:24px;margin-bottom:10px;">
+                    <h4 style="color:#7dbb91">{{p.pack_name}}</h4>
+                    <p>Forms with a person touch</p>
+                    <h1>
+                        <span id="change_price2">{{p.price_monthly}}</span> USD <span class="move">/mo</span>
+                    </h1>
+                    <div class="row">
+                        <div class="col-6">
+                            Billed <span id="change_div2">Monthly</span>
+                        </div>
+                        <div class="col-6">
+                            <button class="new-btn" id="show_bill2">Show <span id="change_data2">Yearly</span></button>
+                        </div>
+                    </div>
+                    <button class="btn big-btn btn-block"><p>Get {{p.pack_name}} Yearly</p></button>
+                    <ul class="prem_section_ul">
+                        <li class="pos">{{p.pack_sec_one}}</li>
+                        <li class="pos">{{p.pack_sec_two}}</li>
+                        <li class="pos">{{p.pack_sec_three}}</li>
+                        <li class="pos">{{p.pack_sec_four}}</li>
+                        <li class="pos">{{p.pack_sec_five}}</li>
+                        <li class="pos">{{p.pack_sec_six}}</li>
+                    </ul>
+                </div>
+            </div>
+            {% elif p.pack_name == 'Premium'%}
+            <div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 card first-card">
+                <div class="card new_card" style="padding:24px">
+                    <h4 style="color:#eec966">{{p.pack_name}}</h4>
+                    <p>Forms with a person touch</p>
+                    <h1>
+                        <span id="change_price3">{{p.price_monthly}}</span> USD <span class="move">/mo</span>
+                    </h1>
+                    <div class="row">
+                        <div class="col-6">
+                            Billed <span id="change_div3">Monthly</span>
+                        </div>
+                        <div class="col-6">
+                            <button class="new-btn" id="show_bill3">Show <span id="change_data3">Yearly</span></button>
+                        </div>
+                    </div>
+                    <button class="btn big-btn btn-block"><p>Get {{p.pack_name}} Yearly</p></button>
+                    <ul class="prem_section_ul">
+                        <li class="pos">{{p.pack_sec_one}}</li>
+                        <li class="pos">{{p.pack_sec_two}}</li>
+                        <li class="pos">{{p.pack_sec_three}}</li>
+                        <li class="pos">{{p.pack_sec_four}}</li>
+                    </ul>
+                </div>
+            </div>
+            {%endif%}
+            <!-- condition ends here -->
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- package section end -->
+
+
+<!-- main elements end -->
+{% endblock main_content %}
+<!-- block content ends here -->
+<!-- scripts starts here -->
+{% block scripts %}
+<!-- javascript codes -->
+<script src="{% static 'front/js/package_billing.js'%}"></script>
+
+<!-- end of javascript code -->
+{% endblock scripts %}
+<!-- scripts block stop here -->

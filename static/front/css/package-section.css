@@ -1,0 +1,130 @@
+.main-header {
+    background-color: #1a1e23;
+    font-family: "Red Hat Text", sans-serif;
+    padding-top: 92px;
+    padding-bottom: 30px;
+    color: white;
+}
+
+.main-header p {
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 16px;
+    color: #c0cad8;
+}
+
+
+/* for add section */
+
+.site-btn-new {
+    display: inline-block;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 167px;
+    padding: 18px 47px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: #0551A2;
+    color: #fff;
+    line-height: normal;
+    cursor: pointer;
+    text-align: center;
+}
+
+.site-btn-new:hover {
+    color: #fff;
+    transform: scale(1.01);
+}
+
+.site-btn-new.sb-white {
+    background: #fff;
+    color: #111111;
+}
+
+.site-btn-new.sb-line {
+    background: transparent;
+    color: #fff;
+    -webkit-box-shadow: inset 0 0 0 1px #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.site-btn-new.sb-dark {
+    background: #413a3a;
+}
+
+.site-btn-new.sb-dark.sb-line {
+    background-color: transparent;
+    color: #111111;
+    -webkit-box-shadow: inset 0 0 0 1px #111111;
+    box-shadow: inset 0 0 0 1px #111111;
+}
+
+.add-section .layer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    ;
+}
+
+
+/* package seciton started */
+
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;300;400;500;600&display=swap');
+
+/* font imported */
+
+.three-col-package {
+    font-family: 'Advent Pro', sans-serif;
+    margin-bottom: 40px;
+}
+
+.three-col-package h4 {
+    font-weight: lighter;
+}
+
+.three-col-package h1 {
+    font-size: 50px;
+    font-weight: lighter;
+}
+
+.three-col-package .move {
+    color: #adadad;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.three-col-package .card {
+    border-radius: 0.6rem;
+}
+
+.three-col-package .new_card {
+    margin-top: 100px;
+}
+
+.three-col-package .card-color {
+    background-color: #dcefef;
+}
+
+.three-col-package .first-card {
+    border: none;
+}
+
+.three-col-package .new-btn {
+    margin-left: 8px;
+    padding: 4px 15px 4px 15px;
+    border: none;
+    border-radius: .3rem;
+    color: #131313;
+    border-color: #f0f0f0;
+    background-color: #f0f0f0;
+}
+
+.three-col-package .new-btn:hover {
+    background-color: #d6d6d6;
+}
+
+.three-col-package .big-btn {
+    background-color: #dcefef;
+    font-size: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+}

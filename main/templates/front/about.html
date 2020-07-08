@@ -1,0 +1,232 @@
+<!-- extending base html -->
+{%extends 'user_base.html'%}
+<!-- loading static files -->
+{% load static %}
+<!-- static file loaded -->
+<!-- starting point of main block -->
+{% block main_content %}
+<!-- here content starts -->
+<style>
+    .main-about {
+        background-color: #1a1e23;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .main-about img {
+        border-radius: 5px;
+    }
+    
+    .main-about .info-sec {
+        font-family: "Red Hat Display", sans-serif, 'Times New Roman', Times, serif;
+    }
+    
+    .main-about .info-sec h1 {
+        margin-top: -20px;
+        font-weight: bolder;
+        font-size: 60px;
+        padding-bottom: 20px;
+    }
+    
+    .main-about .info-sec p {
+        color: #c0cad8;
+        font-weight: lighter;
+        font-size: 14px;
+    }
+    /* main about class ended */
+    
+    .seller-class {
+        padding: 30px 0 30px 0;
+        background-color: #1a1e23;
+    }
+    
+    .seller-class h5 {
+        font-size: 14px;
+        color: #ffffff;
+    }
+    /* seller class ended */
+    
+    .design-explain {
+        padding: 40px 0 40px 0;
+        font-family: "Red Hat Text", sans-serif;
+    }
+    
+    .design-explain h1 {
+        font-weight: bolder;
+        font-size: 40px;
+    }
+    
+    .design-explain p {
+        color: black;
+        font-weight: lighter;
+        font-size: 16px;
+    }
+    
+    .who-we-are {
+        background-color: #1a1e23;
+        padding: 40px 0 40px 0;
+        font-family: "Red Hat Text", sans-serif;
+    }
+    
+    .who-we-are h1 {
+        font-weight: bolder;
+        font-size: 40px;
+    }
+    
+    .who-we-are p {
+        color: #c0cad8;
+        font-weight: lighter;
+        font-size: 16px;
+    }
+    
+    .contact {
+        padding: 40px 0 40px 0;
+    }
+    
+    .contact .form-control {
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #2ccc73;
+        box-shadow: inset 0 1px 1px #ffffff, 0 0 8px #ffffff;
+    }
+    
+    .contact .custom {
+        padding: 15px 0 15px 0;
+    }
+    
+    .contact .custom:focus {
+        box-shadow: none;
+    }
+    
+    .contact h1 {
+        font-weight: bolder;
+        font-size: 60px;
+    }
+    
+    @media only screen and (max-width: 550px) {
+        .main-about .info-sec h1 {
+            margin-top: 0;
+        }
+        .seller-class .row {
+            padding-left: 35%;
+        }
+        .contact img {
+            display: none;
+        }
+    }
+</style>
+<section class="main-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-10">
+                <img class="img-fluid w-85" src="{%static 'front/img/about/about-us.jpg'%}" alt="">
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-10 info-sec">
+                <h1 class="text-white">Every Adventure Begins With A Mission...</h1>
+                <p>What's ours? To enable gamers and broadcasters worldwide. All through the language of design Guess you could call us billingual.</p>
+                <p>Professional stream design shouldn't be exclusive to the pros. From first-time creators to veteran streamers, everyone should have access to quality & affordable designs</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="seller-class">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6">
+                <img class="img-fluid" src="{%static 'front/img/about/open-img.svg'%}" alt="">
+                <h5>+5 YEARS IN BUSINESS</h5>
+            </div>
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6">
+                <img class="img-fluid" src="{%static 'front/img/about/world.svg'%}" alt="">
+                <h5>60,000+ STREAMERS</h5>
+            </div>
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6">
+                <img class="img-fluid" src="{%static 'front/img/about/buy.svg'%}" alt="">
+                <h5>71,000+ DESIGNS SOLD</h5>
+            </div>
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6">
+                <img class="img-fluid" src="{%static 'front/img/about/pen.svg'%}" alt="">
+                <h5>8,000+ CUSTOM PROJECTS</h5>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="design-explain">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-sm-10">
+                <h1>We're Making Stream Design Easier than Ever.</h1>
+                <p>Streaming is challenging. Your channel's graphic design shouldn't be.</p>
+                <p>That's why we offer a range of services, for all budgets. Free, premade, and custom.</p>
+                <p>That's why we integrate our overlays with all your favorite OBS platforms, not just a chosen few. All available 24/7, whether you're on- or offline.</p>
+                <p>And that's why we have a team of support gurus on standby - to guide you through the setup process.</p>
+            </div>
+            <div class="col-12 col-lg-6 col-sm-10">
+                <img class="img-fluid w-100" src="{% static 'front/img/about/explain-class.jpg'%}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="who-we-are">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-sm-10">
+                <img class="img-fluid w-100" src="{% static 'front/img/about/who-we-are.svg'%}" alt="">
+            </div>
+            <div class="col-12 col-lg-6 col-sm-10">
+                <h1 class="text-white">We're Making Stream Design Easier than Ever.</h1>
+                <p>Streaming is challenging. Your channel's graphic design shouldn't be.</p>
+                <p>That's why we offer a range of services, for all budgets. Free, premade, and custom.</p>
+                <p>That's why we integrate our overlays with all your favorite OBS platforms, not just a chosen few. All available 24/7, whether you're on- or offline.</p>
+                <p>And that's why we have a team of support gurus on standby - to guide you through the setup process.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact">
+    <div class="container">
+        <h1 class="mx-auto" style="font-family: 'Red Hat Text';">Contact Us</h1>
+        <div class="row">
+            <div class="col-12 col-lg-6 col-md-6 col-sm 10">
+                <form method="POST">{%csrf_token%}
+                    <div class="form-row">
+                        <div class="col-12 custom">
+                            {{form.full_name}}
+                        </div>
+                        <div class="col-12 custom">
+                            {{form.email}}
+                        </div>
+                    </div>
+                    <button class="btn btn-success shadow-none">Send</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 col-sm 10">
+                <img style="height: 250px;width: 250px; margin-top:-74px" class="img-fluid w-15 float-right" src="{%static 'front/img/about/contact.webp'%}" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- here content ends -->
+{% endblock main_content %}
+<!-- end of main block -->
+<!-- script block starts here -->
+{% block scripts%}
+<!-- write script here -->
+<script type="text/javascript">
+    // window.onload = setupRefresh;
+
+    // function setupRefresh() {
+    //     setTimeout("refreshPage();", 10000);
+    // }
+
+    // function refreshPage() {
+    //     window.location = location.href;
+    // }
+</script>
+<!-- script writing ends here -->
+{% endblock scripts %}
+<!-- scripts ends here -->

@@ -1,0 +1,286 @@
+{% extends 'user_base.html' %}
+<!-- extending base page -->
+<!-- loading static files -->
+{% load static %}
+<!-- static file loaded -->
+<!-- block content started -->
+{% block main_content %}
+<!-- content started -->
+<style>
+    .custom-con {
+        margin-top: 35px;
+        margin-bottom: 45px;
+    }
+    
+    .contributor .col-12 .col-xl-3 .col-lg-3 .col-md-6 .col-sm-12 {
+        border-radius: 10px;
+    }
+    
+    .contributor .card-image {
+        border-radius: 10px;
+    }
+    
+    .bg-dark {
+        background-color: #1A1E23 !important;
+    }
+    
+    .sec {
+        margin-top: 25px;
+    }
+    
+    .row {
+        margin-top: 25px;
+    }
+    
+    .card {
+        margin-top: 25px;
+    }
+    
+    @media only screen and (max-width: 479px) {
+        .container .embaded-section iframe {
+            width: 340px;
+            height: 240px;
+        }
+    }
+    
+    @media only screen and (min-width: 480px) and (max-width: 575px) {
+        .container .embaded-section iframe {
+            width: 340px;
+            height: 240px;
+        }
+    }
+    
+    @media only screen and (min-width: 576px) and (max-width: 766px) {
+        .container .embaded-section iframe {
+            width: 340px;
+            height: 240px;
+        }
+    }
+</style>
+<!-- preloader -->
+{% include "preloader.html" %}
+<!-- preloader end -->
+<!-- Hero section -->
+<section class="hero-section">
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item set-bg" data-setbg="{% static 'front/img/bg-2.png' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-7 text-white">
+                        <span>make design</span>
+                        <h2>gamer creator</h2>
+                        <h2>brand</h2>
+                        <p>Explore the largest design marketplace for broadcasters. Your #1 choice for stream graphics and channel branding. Big poggers.
+                        </p>
+                        <a href="/store" class="site-btn">Start Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hs-item set-bg" data-setbg="{% static 'front/img/bg-2.png'%}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-7 text-white">
+                        <span>Designed For</span>
+                        <h2>gamer creator</h2>
+                        <h2>brand</h2>
+                        <a href="#" class="float-left"><img src="{% static 'front/img/icons/blue-facebook-logo-mark.svg' %}" width="45" height="45" alt=""></a>
+                        <a href="#" class="float-left"><img src="{% static 'front/img/icons/purple-twitch-logo-mark.svg' %}" width="45" height="45" alt=""></a>
+                        <a href="#" class="float-left"><img src="{% static 'front/img/icons/red-youtube-logo-mark.svg' %}" width="45" height="45" alt=""></a>
+                        <hr>
+                        <hr>
+                        <hr>
+                        <p>Explore the largest design marketplace for broadcasters. Your #1 choice for stream graphics and channel branding. Big poggers.
+                        </p>
+                        <a href="#" class="site-btn">DISCOVER US</a>
+                    </div>
+                </div>
+                <div class="offer-card text-white">
+                    <span>from</span>
+                    <h2>$29</h2>
+                    <p>SHOP NOW</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="slide-num-holder" id="snh-1"></div>
+    </div>
+</section>
+<!-- hero section end -->
+<!-- premium overlay section -->
+<section class="premium_section">
+    <div class="container">
+        <div class="row" style="margin:45px 0 45px 0">
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <h2>Premium Overlays And Alerts</h2>
+                <p>Choose from hundreds of premade and free templates, with new designs added weekly. Works on:</p>
+                <ul class="prem_section_ul">
+                    <li class="pos">Twitch</li>
+                    <li class="pos">Facebook</li>
+                    <li class="pos">Twitter</li>
+                    <li class="pos">Youtube</li>
+                </ul>
+                <p>Browse themes from your favorite games, colors and art styles. Then make it your own with easy editing and customization.</p>
+                <p>All for $30 or less. FeelsGoodMan.</p>
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <div class="embaded-section">
+                    {%for i in overlay%}
+                    <iframe width="600" height="340" src="{{i.link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- endfor -->
+                    {%endfor%}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- premium overlay section end -->
+<!-- multiplatform section -->
+<section class="multi_section">
+    <div class="container">
+        <div class="row" style="margin:45px 0 45px 0">
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <div class="image">
+                    <img src="{% static 'front/img/multisection.png'%}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                </div>
+
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <h2>Multi-Platform Support</h2>
+                <p style="margin-top:60px;">Go live with guaranteed support for all your favorite OBS platforms:</p>
+                <ul class="prem_section_ul" style="margin-top:20px;">
+                    <li class="pos">Streamlabs</li>
+                    <li class="pos">StreamElements</li>
+                    <li class="pos">OBS Studio</li>
+                    <li class="pos">...and more</li>
+                </ul>
+                <p style="margin-top:20px;">Plus handy installation guides, tutorials, and support from our team of setup gurus.</p>
+                <p style="margin-top:20px;">Making graphic design easy, one broadcast at a time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- multiplatform section end -->
+<!-- custom section -->
+<section class="custom_section">
+    <div class=" container ">
+        <div class="row " style="margin:45px 0 45px 0 ">
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10 ">
+                <h2>Custom Brand Design</h2>
+                <p>Make it personal. Commission our team to create a one-of-a-kind look.</p>
+                <p>Share your vision and our team of experts will bring it to life. Services include:</p>
+                <ul class="prem_section_ul ">
+                    <li class="pos ">Logo and Stream Design</li>
+                    <li class="pos ">Motion Design and Animation</li>
+                    <li class="pos ">Emotes and Sub Badges</li>
+                    <li class="pos ">.Merch and more!</li>
+                </ul>
+                <p>Custom brand creations that are as unique as you are.</p>
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10 ">
+                <div class="image ">
+                    <img src="{% static 'front/img/custom_brand.png'%} " class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} " alt=" ">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- custom section end -->
+<!-- contributor section -->
+<section class="contributor">
+    <div class="container custom-con">
+        <h2 class="text-center text-white">Who We’ve Worked With</h2>
+        <div class="row">
+            {% for i in range %}
+            <div class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 transform">
+                <div class="card bg-dark text-white">
+                    <img class="card-image" src="{% static 'front/img/card-image.jpg'%}" alt="">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <h4 class="mt-auto">Shahed</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- contributor section end -->
+<!-- review section -->
+<section class="rating">
+    <div class="container">
+        <h2 class="text-center text-black custom">What Our Customer Says</h2>
+        <div class="row">
+            <div class="carousel-wrap">
+                <div class="owl-carousel">
+                    {% for i in range %}
+                    <div class="item">
+                        <div class="row">
+                            <div class="new-col-1 col-6">
+                                <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                            </div>
+                            <div class="new-col-1 float-left col-6">
+                                <small class="text-muted">6 mins ago</small>
+                            </div>
+                        </div>
+                        <!-- comment section -->
+                        <!-- main comment -->
+                        <h5 class="card-title">Excellent</h5>
+                        <!-- brif comment -->
+                        <p class="card-text" style="text-align: justify;">Excellent work of this company. I love there group</p>
+                        <small class="text-muted">Shahed Talukder</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- review section end -->
+<!-- content stopped -->
+{% endblock main_content %}
+<!-- block ends here -->
+<!-- block scripts start here -->
+{% block scripts %}
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        navText: [
+            "<i class='flaticon-left-arrow-1 owl-nav-2 owl-prev'></i>",
+            "<i class='flaticon-right-arrow-1 owl-nav-2 owl-next'></i>"
+        ],
+        autoplay: true,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
+
+{% endblock scripts%}
+<!-- block script ends here -->

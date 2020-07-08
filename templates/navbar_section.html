@@ -1,0 +1,50 @@
+{%load static%}
+<style>
+    .main-menu a.active {
+        color: #26d58a !important;
+    }
+</style>
+<header class="header-section">
+    <nav class="main-navbar fixed-top">
+        <div class="container" id="fixednav">
+            <!-- menu -->
+            <ul class="main-menu" id="myDIV">
+                <a class="navbar-brand" href="/">
+                    <img src="{%static 'front/img/logo.png'%}" width="135" height="30" alt="">
+                </a>
+                <li><a class="atn active" href="/">Home</a></li>
+                <li><a class="atn " href="/package">Package</a></li>
+                <li><a class="atn " href="/store">Store</a></li>
+                <li><a class="atn " href="#">Custom</a>
+                <li><a class="atn " href="/about">About</a></li>
+                {% comment %}
+                <li><a class="atn " href="#">{{user}}</a></li> {% endcomment %} 
+                {% if user.is_authenticated %}
+                
+                </li>
+                <li class="shopping-card float-right">
+                    <a href="/cart" class="flaticon-bag" style="color:white;font-size:23px;padding-top:7px">
+                        <span style="padding-top:2px">{{order.get_cart_items}}</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">Profile</a>
+                    <ul class="sub-menu">
+                        <li class=""><a href="#">Profile</a></li>
+                        <li class=""><a href="/logout">Logout</a></li>
+                        
+                    </ul>
+                </li>
+
+                {% else %}
+                <li class="shopping-card float-right">
+                    <a href="/cart" class="flaticon-bag " style="color:white;font-size:23px;padding-top:7px ">
+                        <span style="padding-top:2px ">{{order.get_cart_items}}</span>
+                    </a>
+                </li>
+                <li class=""><a href="/login ">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>

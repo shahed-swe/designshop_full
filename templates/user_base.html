@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Design Shop | {{title}}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content=" Divisima | eCommerce Template">
+    <meta name="keywords" content="divisima, eCommerce, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="{% static 'front/img/favicon.ico' %}" rel="shortcut icon" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/flaticon.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/slicknav.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/jquery-ui.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'front/img/prem_ul_image.png'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'front/css/package-section.css' %}" />
+</head>
+
+<body>
+
+
+    <!-- navbar/header section -->
+    {% include "navbar_section.html" %}
+    <!-- navbar/header section end -->
+
+    <!-- main content section -->
+    {% block main_content %}
+    <!-- content will be added here -->
+    {% endblock main_content %}
+    <!-- content section end here -->
+
+
+    <!-- banner section -->
+    {% include "banner_section.html"%}
+    <!-- banner section end -->
+    <!-- footer section -->
+    <section class="footer-section ">
+        <div class="container ">
+            <div class="footer-logo text-center ">
+                <a href="index.html "><img src="{% static 'front/img/logo.png'%} " height="70px " width="270px " alt=" "></a>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="footer-widget about-widget ">
+                        <h2>About</h2>
+                        {%for i in about%}
+                        <p>{{i.about}}</p>
+                        {%endfor%}
+                        <img src="{% static 'front/img/cards.png'%} " alt=" ">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="footer-widget about-widget ">
+                        <h2></h2>
+                        <ul>
+                            <li><a href=" ">About Us</a></li>
+                            <li><a href=" ">Track Orders</a></li>
+                            <li><a href=" ">Returns</a></li>
+                            <li><a href=" ">Jobs</a></li>
+                            <li><a href=" ">Shipping</a></li>
+                            <li><a href=" ">Blog</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href=" ">Partners</a></li>
+                            <li><a href=" ">Bloggers</a></li>
+                            <li><a href=" ">Support</a></li>
+                            <li><a href=" ">Terms of Use</a></li>
+                            <li><a href=" ">Press</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="footer-widget about-widget ">
+                        <h2></h2>
+                        <div class="fw-latest-post-widget ">
+                            <div class="lp-item ">
+                                <div class="lp-thumb set-bg " data-setbg="{%static 'front/img/unnamed.png'%} "></div>
+                                <div class="lp-content ">
+                                    <h6>Save your files to drive</h6>
+                                    <span>Oct 21, 2018</span>
+                                    <a href="# " class="readmore ">Read More</a>
+                                </div>
+                            </div>
+                            <div class="lp-item ">
+                                <div class="lp-thumb set-bg " data-setbg="{%static 'front/img/unnamed.png'%} "></div>
+                                <div class="lp-content ">
+                                    <h6>See your drive</h6>
+                                    <span>Oct 21, 2018</span>
+                                    <a href="# " class="readmore ">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="footer-widget contact-widget ">
+                        <h2>Contacts</h2>
+                        <div class="con-info ">
+                            <span>C.</span>
+                            <p>Your Company Ltd </p>
+                        </div>
+                        <div class="con-info ">
+                            <span>B.</span>
+                            <p>1481 Creekside Lane Avila Beach, CA 93424, P.O. BOX 68 </p>
+                        </div>
+                        <div class="con-info ">
+                            <span>T.</span>
+                            <p>+53 345 7953 32453</p>
+                        </div>
+                        <div class="con-info ">
+                            <span>E.</span>
+                            <p>office@youremail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social-links-warp ">
+            <div class="container ">
+                <div class="social-links ">
+                    <a href=" " class="instagram "><i class="fa fa-instagram "></i><span>instagram</span></a>
+                    <a href=" " class="google-plus "><i class="fa fa-google-plus "></i><span>g+plus</span></a>
+                    <a href=" " class="pinterest "><i class="fa fa-pinterest "></i><span>pinterest</span></a>
+                    <a href=" " class="facebook "><i class="fa fa-facebook "></i><span>facebook</span></a>
+                    <a href=" " class="twitter "><i class="fa fa-twitter "></i><span>twitter</span></a>
+                    <a href=" " class="youtube "><i class="fa fa-youtube "></i><span>youtube</span></a>
+                    <a href=" " class="tumblr "><i class="fa fa-tumblr-square "></i><span>tumblr</span></a>
+                </div>
+
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <p class="text-white text-center mt-5 ">Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved<i class="fa fa-heart-o " aria-hidden="true "></i> by <a href="https://facebook.com/shahed.talukder32/" target="_blank ">Shahed Talukder</a></p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+            </div>
+        </div>
+    </section>
+    <!-- footer section end -->
+    <!-- script section -->
+    <script src="{% static 'front/js/jquery-3.2.1.min.js' %} "></script>
+    <script src="{% static 'front/js/bootstrap.min.js' %} "></script>
+    <script src="{% static 'front/js/jquery.slicknav.min.js' %} "></script>
+    <script src="{% static 'front/js/owl.carousel.min.js' %} "></script>
+    <script src="{% static 'front/js/jquery.nicescroll.min.js' %} "></script>
+    <script src="{% static 'front/js/jquery.zoom.min.js' %} "></script>
+    <script src="{% static 'front/js/jquery-ui.min.js' %} "></script>
+    <script src="{% static 'front/js/main.js' %} "></script>
+    <script>
+        $(window).on('load', function() {
+            $("#loader ").fadeOut("slow ");
+        });
+    </script>
+
+    <!-- disable inspection -->
+    <!-- <script>
+        $(document).bind("contextmenu", function(e) {
+            e.preventDefault();
+        });
+        $(document).keydown(function(e) {
+            if (e.which === 123) {
+                return false;
+            }
+        });
+    </script> -->
+    <!-- script section end -->
+    <!-- page based scripts -->
+    {% block scripts %}
+    <!-- page based script section -->
+    {% endblock scripts%}
+    <!-- page based scripts end -->
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!-- extending base html -->
+{%extends 'user_base.html'%}
+<!-- base template extended -->
+<!-- loading static -->
+{%load static%}
+<!-- static files has been loaded -->
+{% block main_content %}
+<!-- main block starts here -->
+<!-- content starts -->
+<style>
+    .cart-prevent {
+        padding: 70px 0 40px 0;
+        background-color: #1a1e23;
+    }
+    
+    .cart-prevent h1 {
+        padding-top: 63px;
+        font-family: "Red Hat Display", sans-serif;
+        font-weight: 700;
+        font-size: 74px;
+        color: #ffffff;
+    }
+    
+    .cart-prevent p {
+        font-family: "Red Hat Text", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #c0cad8;
+    }
+    
+    .product-section {
+        padding-top: 40px;
+    }
+    
+    .product-section h4 {
+        font-family: "Red Hat Display", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        color: #1a1e23;
+    }
+    
+    hr {
+        border: 0.001rem solid #c0c0c0;
+    }
+    
+    #price {
+        font-family: "Red Hat Display", sans-serif;
+        font-style: normal;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    
+    .product-section .new-sec img {
+        height: 200px;
+        width: 320px;
+        border-radius: 0.5rem;
+        padding-bottom: 20px;
+    }
+    
+    .product-section .item-detail {
+        padding-top: 75px;
+        padding-left: 20px
+    }
+    
+    .product-section .item-price {
+        padding-top: 75px;
+        padding-left: 20px;
+    }
+    
+    .product-section .item-delete {
+        padding-top: 75px;
+        padding-left: 20px
+    }
+    
+    .sub-total {
+        font-family: "Red Hat Text", sans-serif;
+    }
+    
+    .sub-total h3 {
+        margin-top: 15px;
+        font-weight: 300;
+    }
+    
+    .button-tag {
+        margin-top: 100px;
+    }
+    
+    .button-tag .btn {
+        margin: 0 10px 0 10px;
+        border-radius: 1.5rem;
+        height: 3rem;
+        padding-top: 11px;
+    }
+    
+    .button-tag .check {
+        margin-right: 0;
+    }
+    
+    @media only screen and (max-width: 550px) {
+        .product-section .new-sec img {
+            height: 340px;
+            width: 540px;
+        }
+        .product-section .new-row {
+            display: none;
+        }
+        .product-section .item-detail {
+            padding-top: 0px;
+            padding-left: 0px;
+        }
+        .product-section .item-price {
+            padding-top: 0;
+            padding-left: 17px;
+        }
+        .product-section .item-delete {
+            margin-top: -102px;
+            padding-left: 384px;
+        }
+        .oi-talk {
+            display: none;
+        }
+        .ol-product {
+            padding-bottom: 40px;
+        }
+        .button-tag .btn {
+            float: left;
+            margin: 10px 10px 10px 10px;
+            padding-top: 11px;
+        }
+    }
+</style>
+<section class="cart-prevent">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-sm-12">
+                <h1>Cart</h1>
+                <p>That's some legendary loot you've got there. We can't wait to see it on your next broadcast! But first, let's review your order and make sure everything is correct</p>
+            </div>
+            <div class="col-12 col-lg-6 col-sm-12">
+                <img class="img-fluid w-75" src="{%static 'front/img/multisection.png'%}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product-section">
+    <div class="container">
+        <div class="row new-row">
+            <div class="col-12 col-lg-8 col-md-8 col-sm-10">
+                <h4>Product</h4>
+            </div>
+            <div class="col-12 col-lg-2 col-md-2 col-sm-10">
+                <h4>Price</h4>
+            </div>
+            <div class="col-12 col-lg-2 col-md-2 col-sm-10"></div>
+        </div>
+        <hr class="oi-talk">
+        <div class="row new-sec">
+            {% for item in items%}
+            <div class="col-12 col-lg-8 col-md-8 col-sm-10 ">
+                <!-- if -->
+                {%if item.product.img_one.url%}
+                <img class="img-fluid float-left" id="image-take" src="{{item.product.img_one.url}}" alt="">
+                <!-- else -->
+                {%else%}
+                <img class="img-fluid float-left" id="image-take" src="" alt="">
+                <!-- end -->
+                {%endif%}
+                <div class="float-left item-detail">
+                    <h4 class="">{{item.product.title}}</h4>
+                    <p class=""><span style="font-size: large;">Variation:</span> <span style="font-size: 16px;">{{item.product.category}}</span></p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-md-2 col-sm-10 item-price">
+                $<span id="price">{{item.product.price}}</span>
+            </div>
+            <div class="btn col-12 col-lg-2 col-md-2 col-sm-10 item-delete ol-product update-cart" data-product="{{item.product.id}}" data-action="remove">X</div>
+            {%endfor%}
+        </div>
+        <hr>
+        <div class="sub-total float-right">
+            <h4>SUBTOTAL</h4>
+            <h3 class="float-right">$<span id="order-price">{{order.get_cart_total}}</span></h3>
+        </div>
+        <div class="container button-tag">
+            <div class="row float-right">
+                <a href="/store" class="btn btn-info shadow-none keep">Keep Shopping</a>
+                <a href="/checkout" class="btn btn-success shadow-none check">CONTINUE TO CHECKOUT</a>
+            </div>
+        </div>
+</section>
+<!-- content stop -->
+{% endblock main_content %}
+<!-- main block stops here -->
+{% block scripts %}
+<script src="{%static 'front/js/store.js'%}"></script>
+<script src="{%static 'front/js/cart.js'%}"></script>
+<script type="text/javascript">
+    var user = '{{request.user}}';
+    var status = '{{request.user.is_staff}}';
+    var item = '{{order.get_cart_items}}';
+    if (item > 0) {
+        $('.check').css('display', '')
+    } else {
+        $('.check').css('display', 'none')
+    }
+
+    function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+</script>
+<!-- end of javascript code -->
+{% endblock scripts %}
+<!-- scripts block stop here -->

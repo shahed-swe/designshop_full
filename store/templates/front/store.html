@@ -1,0 +1,252 @@
+<!-- extends base html -->
+{% extends "user_base.html" %}
+<!-- end of base html -->
+<!-- load static file -->
+{% load static %}
+<!-- static file loaded -->
+<!-- main block content started -->
+{% block main_content %}
+<!-- main elements -->
+<style>
+    .add-section {
+        margin-top: 65px;
+        margin-bottom: 65px;
+    }
+    
+    .add-section .container .banner {
+        -webkit-box-shadow: inset -200px 121px 217px 35px rgba(0, 0, 0, 1);
+        -moz-box-shadow: inset -200px 121px 217px 35px rgba(0, 0, 0, 1);
+        box-shadow: inset -200px 121px 217px 35px rgba(0, 0, 0, 1);
+    }
+    
+    .product-item .pi-links a,
+    .product-item .pi-links a i {
+        color: #09d081
+    }
+    
+    .categories-menu-desk ul li {
+        font-family: "Red Hat Text", sans-serif;
+        padding-top: 7px;
+    }
+    
+    .banner-section {
+        display: none;
+    }
+    
+    .product-filter-section .new-card {
+        display: none;
+    }
+    
+    .search-bar p {
+        font-family: "Red Hat Text", sans-serif;
+        font-size: medium;
+        font-weight: 400;
+    }
+    
+    .search-bar span {
+        font-family: "Red Hat Text", sans-serif;
+        font-size: medium;
+        font-weight: 500;
+    }
+    
+    .result-show {
+        padding-left: 15px;
+    }
+    
+    .result-show p {
+        font-family: "Red Hat Text", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    .result-show span {
+        font-weight: 500;
+    }
+</style>
+<!-- header main -->
+<section class="main-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <h1 class="text-white" style="font-size: 60px;padding-bottom:15px">Stream Package</h1>
+                <p class="text-white">Choose your loadout from our collection of ready-to-use graphics. Premium overlays, alerts, and templates - with new designs added weekly.</p>
+                <p class="text-white">Browse designs for Twitch, Mixer, YouTube, and Facebook Gaming. Enjoy multi-platform support across Streamlabs, StreamElements, and OBS Studio.</p>
+                <p class="text-white">Just download, set up, and stream.</p>
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <img class="img-fluid w-75 header-image" src="{% static 'front/img/package-first.jpg'%}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- main header end -->
+<!-- package add section -->
+<section class="add-section">
+    <div class="container custom-con">
+        {%for i in product%}
+        <!-- startting of condition -->
+        {%if i.id == number %} {%if i.img_one %}
+        <div class="banner set-bg" data-setbg="{{i.img_one.url}}">
+            {%else%}
+            <div class="banner set-bg" data-setbg="">
+                {%endif%}
+                <div class="row">
+                    <div class="col-8">
+                        <div class="layer">
+                            <span class="text-white">New Arrivals</span>
+                            <h2 class="text-white">{{i.title}}</h2>
+                            <a href="# " class="site-btn-new">SHOP NOW</a>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid rounded w-15 img-right" src="{{i.img_one.url}}" alt="">
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            <!--end of condition  -->
+            {%endfor%}
+        </div>
+</section>
+<!-- package add section end -->
+
+
+
+<!-- Product filter section -->
+<section class="product-filter-section ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-2 col-md-3 col-sm-12 sticky-element">
+                <div class="section-title">
+                    <h4>Collections</h4>
+                </div>
+                <div class="categories-menu-desk">
+                    <ul class="#" id="all_cat">
+                        <form method="POST" class="navigate_cat">{% csrf_token %}
+                            <li><a id="all-prod" class="all" href="#">All Products</a><span class="float-right">{{number_prod}}</span></li>
+
+                        </form>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-10 col-md-10 col-sm-12 item-section">
+                <div class="row">
+                    <form method="post" class="col-12 col-lg-12 col-sm-10"> {% csrf_token %}
+                        <input name="search" id="search" onkeyup="Result()" class="form-control" type="text" placeholder="Search" style="font-family: 'Red Hat Text',sans-serif;">
+                        <!-- including form -->
+                    </form>
+                    <div class="result-show" id="result-show">
+                        <p>Showing results <span id="res-val">{{number_prod}}</span> of {{number_prod}} from <span id="res-all">All Products</span></p>
+                    </div>
+                    <div class="col-lg-4 col sm-10" style="padding-bottom: 20px;"></div>
+                    <div id="data-container" class="container">
+                        <div id="products" class="row">
+                            {%for i in product%}
+                            <div class="col-lg-4 col-sm-6 new-card" id="myTable">
+                                <div class="product-item ">
+                                    <div class="pi-pic ">
+                                        <!-- {%if i.img_one%} -->
+                                        <img id="product_img" src="{{i.img_one.url}}" alt=" ">
+                                        <!-- image included -->
+                                        <!-- {%endif%} -->
+                                        <div class="card-img-overlay">
+                                            <a href="{% url 'product_details' slug=i.slug %}">
+                                                <h4 id="category" style="color:#09d081;font-size:15px">{{i.category}}</h4>
+                                            </a>
+                                        </div>
+                                        <div class="pi-links ">
+                                            <a href="#" class="add-card update-cart swal" data-product="{{i.id}}" data-action="add"><i class="flaticon-bag "></i><span>ADD TO CART</span></a>
+                                            <!-- <a href="# " class="wishlist-btn "><i class="flaticon-heart "></i></a> -->
+                                        </div>
+                                    </div>
+                                    <div class="pi-text ">
+                                        {%if i.price == 0%}
+                                        <h6 style="color:#09d081;"><span id="price">Free</span></h6>
+                                        {%else%}
+                                        <h6 style="color:#09d081;">$<span id="price">{{i.price}}</span></h6>
+                                        {%endif%}
+                                        <a href="{% url 'product_details' slug=i.slug %}">
+                                            <p id="title">{{i.title}}</p>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center pt-5 ">
+            <button id="btnMore" class="site-btn sb-line sb-dark new_btn">LOAD MORE</button>
+        </div>
+    </div>
+</section>
+<!-- package section end -->
+
+
+
+<!-- main elements end -->
+{% endblock main_content %}
+<!-- block content ends here -->
+<!-- scripts starts here -->
+{% block scripts %}
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src="http://scottoffen.github.io/jquery.toaster/jquery.toaster.js"></script>
+<script src="{%static 'front/js/store.js'%}"></script>
+<script src="{%static 'front/js/cart.js'%}"></script>
+<script type="text/javascript">
+    var user = '{{request.user}}';
+    var status = '{{request.user.is_staff}}'
+
+    function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+
+    $(function() {
+        $('.swal').on('click', function() {
+            console.log('user', user);
+            if (user == "AnonymousUser" && status == "False") {
+                $.toaster({
+                    message: 'you are not logged in yet',
+                    title: 'Hello' + ' ' + user,
+                    priority: 'danger'
+                });
+            } else if (status == "True") {
+                $.toaster({
+                    message: "Admin Can't Shop From Here",
+                    title: 'Hello' + ' ' + user,
+                    priority: 'danger'
+                });
+            } else {
+                $.toaster({
+                    message: 'Item has been added',
+                    title: 'Hello' + ' ' + user,
+                    priority: 'success'
+                });
+            }
+        })
+    })
+</script>
+<!-- end of javascript code -->
+{% endblock scripts %}
+<!-- scripts block stop here -->

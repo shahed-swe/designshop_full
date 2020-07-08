@@ -1,0 +1,122 @@
+<!-- extending base html -->
+{%extends 'user_base.html'%}
+<!-- base template extended -->
+<!-- loading static -->
+{%load static%}
+<!-- static files has been loaded -->
+{% block main_content %}
+<!-- main block starts here -->
+<!-- content starts -->
+<style>
+    .checkout {
+        font-family: "Red Hat Display", sans-serif;
+        padding-top: 100px;
+    }
+    
+    #image-take {
+        height: 80px;
+        width: 120px;
+        border-radius: 5px;
+    }
+    
+    .products-list {
+        margin: 10px 10px 10px 10px;
+    }
+    
+    .item-detail {
+        padding-left: 5px;
+    }
+</style>
+<section class="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                <label for="">Select Payment Method</label>
+                <select name="" id="select-source" class="form-control">
+                    <option value="">Choose..</option>
+                    <option value="bd">Bangladesh</option>
+                    <option value="all">Other</option>
+                </select>
+                <div class="bd">
+                    <div class="row">
+                        <button id="rocket" class="btn btn-white shadow-none btn-block col-6">
+                            <img src="{%static 'front/img/rocket.ico'%}" alt="">
+                            Rocket
+                        </button>
+                        <button id="bkash" class="btn btn-white shadow-none btn-block col-6">
+                            <img src="{%static 'front/img/bkash.ico'%}" alt="">
+                            Bkash
+                        </button>
+                    </div>
+                </div>
+                <div class="all">
+                    <div class="row">
+                        <button id="stripe" class="btn btn-white shadow-none btn-block col-6">
+                            <img src="{%static 'front/img/stripe.ico'%}" alt="">
+                        </button>
+                        <button id="check2out" class="btn btn-white shadow-none btn-block col-6">
+                            <img height="60" width="60" src="{%static 'front/img/2checkout.ico'%}" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                <div class="row new-sec">
+                    {% for item in items%}
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-10 products-list">
+                        <!-- if -->
+                        {%if item.product.img_one.url%}
+                        <img class="img-fluid float-left" id="image-take" src="{{item.product.img_one.url}}" alt="">
+                        <!-- else -->
+                        {%else%}
+                        <img class="img-fluid float-left" id="image-take" src="" alt="">
+                        <!-- end -->
+                        {%endif%}
+                        <div class="float-left item-detail">
+                            <p class=""> <span style="font-size: 16px;">{{item.product.title}}</span></p>
+                            $<span id="price">{{item.product.price}}</span>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- content stop -->
+{% endblock main_content %}
+<!-- main block stops here -->
+{% block scripts %}
+<!-- script tag start -->
+<script>
+    $(document).ready(function() {
+        $('.all').css('display', 'none')
+        $('.bd').css('display', 'none')
+        $("select#select-source").change(function() {
+            var selectedCountry = $(this).children("option:selected").val();
+            if (selectedCountry) {
+                if (selectedCountry == "bd") {
+                    $('.bd').css('display', '')
+                    $('.all').css('display', 'none')
+                } else {
+                    $('.bd').css('display', 'none')
+                    $('.all').css('display', '')
+                }
+            }
+        });
+        $("#bkash").on('click', function() {
+            alert("Thanks for purchas with bkash");
+        })
+        $("#rocket").on('click', function() {
+            alert("Thanks for purchas with rocket");
+        })
+        $("#stripe").on('click', function() {
+            alert("Thanks for purchas with stripe");
+        })
+        $("#check2out").on('click', function() {
+            alert("Thanks for purchas with 2checkout");
+        })
+    });
+</script>
+<!-- script tag stop -->
+{% endblock scripts %}
