@@ -23,7 +23,7 @@ class CreateUserForm(UserCreationForm):
         attrs = {
             'class':'form-control',
             'id':'last_name',
-            'placeholder': 'Enter Your Username',
+            'placeholder': 'Enter Your Last Name',
         }
     ))
     
@@ -45,7 +45,7 @@ class CreateUserForm(UserCreationForm):
         attrs={
             'class':'form-control',
             'id':'password_field_two',
-            'placeholder':'Enter Password First',
+            'placeholder':'Enter Password Again',
         }
     ))
     class Meta:
