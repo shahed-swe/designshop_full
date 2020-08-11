@@ -7,6 +7,7 @@
 {% block main_content %}
 <!-- main block starts here -->
 <!-- content starts -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
 <style>
     .checkout {
         font-family: "Red Hat Display", sans-serif;
@@ -25,6 +26,100 @@
     
     .item-detail {
         padding-left: 5px;
+    }
+    
+    .input {
+        padding: 13px 0px 13px 25px;
+        width: 100%;
+        text-align: center;
+        border: 2px solid #dddddd;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        word-spacing: 3px;
+        outline: none;
+        font-size: 16px;
+        color: #555555;
+    }
+    
+    .card-grp {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .card-item {
+        width: 48%;
+    }
+    
+    .space {
+        margin-bottom: 20px;
+    }
+    
+    .icon-relative {
+        position: relative;
+    }
+    
+    .icon-relative .fas,
+    .icon-relative .far {
+        position: absolute;
+        bottom: 12px;
+        left: 15px;
+        font-size: 20px;
+        color: #555555;
+    }
+    
+    .pay-btn {
+        margin-top: 40px;
+        background: #2196F3;
+        padding: 12px;
+        text-align: center;
+        color: #f8f8f8;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .payment-logo {
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 100px;
+        background: #f8f8f8;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        line-height: 85px;
+    }
+    
+    .payment-logo:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 90px;
+        height: 90px;
+        background: #2196F3;
+        border-radius: 50%;
+    }
+    
+    .payment-logo p {
+        position: relative;
+        color: #f8f8f8;
+        font-family: 'Baloo Bhaijaan', cursive;
+        font-size: 58px;
+    }
+    
+    @media screen and (max-width: 420px) {
+        .card-grp {
+            flex-direction: column;
+        }
+        .card-item {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .btn {
+            margin-top: 20px;
+        }
     }
 </style>
 <section class="checkout">
@@ -50,13 +145,73 @@
                     </div>
                 </div>
                 <div class="all">
-                    <div class="row">
-                        <button id="stripe" class="btn btn-white shadow-none btn-block col-6">
-                            <img src="{%static 'front/img/stripe.ico'%}" alt="">
-                        </button>
-                        <button id="check2out" class="btn btn-white shadow-none btn-block col-6">
+                    <div>
+                        <button id="check2out" class="btn btn-white shadow-none btn-block col-12">
                             <img height="60" width="60" src="{%static 'front/img/2checkout.ico'%}" alt="">
                         </button>
+                        <section class="2checkout-pay">
+                            <div class="wrapper">
+                                <div class="payment">
+                                    <form id="myCCForm" action="/checkout-submit/" class="form" method="POST">
+                                        {% csrf_token %}
+                                        <input name="token" type="hidden" value="">
+                                        <div class="card space icon-relative">
+                                            <input type="text" name="card-holder" class="input" placeholder="Card Holder Name">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="card space icon-relative">
+                                            <input type="text" id="ccNo" name="card-number" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number">
+                                            <i class="far fa-credit-card"></i>
+                                        </div>
+                                        <div class="card-grp space">
+                                            <div class="card-item icon-relative">
+                                                <input type="text" id="expMonth" name="month" class="input" placeholder="MM">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </div>
+                                            <div class="card-item icon-relative">
+                                                <input type="text" id="expYear" name="year" class="input" placeholder="YY">
+                                            </div>
+                                        </div>
+                                        <div class="card space icon-relative">
+                                            <input type="text" id="cvv" name="cvv" class="input" data-mask="000" placeholder="CVV">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <input type="hidden" name="total-value" value="{{order.get_cart_total}}">
+                                        <input type="hidden" name="all_item" value="{{order.order_id_list}}">
+                                        <hr>
+                                        <div class="card space icon-relative">
+                                            <input type="text" id="address" name="address" class="input" placeholder="Address">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="card-grp space">
+                                            <div class="card-item icon-relative">
+                                                <input type="text" id="city" name="city" class="input" placeholder="CITY">
+                                            </div>
+                                            <div class="card-item icon-relative">
+                                                <input type="text" id="state" name="state" class="input" placeholder="STATE">
+                                            </div>
+                                        </div>
+                                        <div class="card-grp space">
+                                            <div class="card-item icon-relative">
+                                                <input type="text" id="zip" name="zip" class="input" placeholder="ZIP CODE">
+                                            </div>
+                                            <div class="card-item icon-relative">
+                                                <input type="text" id="country" name="country" class="input" placeholder="COUNTRY">
+                                            </div>
+                                        </div>
+                                        <div class="card space icon-relative">
+                                            <input type="text" name="email" class="input" placeholder="Email Address">
+                                            <i class="fas fa-at"></i>
+                                        </div>
+                                        <div class="card space icon-relative">
+                                            <input type="text" name="phone" class="input" placeholder="Phone Number">
+                                            <i class="fas fa-address-book"></i>
+                                        </div>
+                                        <input type="submit" class="pay-btn btn-block" value="Pay">
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -65,29 +220,89 @@
                     {% for item in items%}
                     <div class="col-12 col-lg-8 col-md-8 col-sm-10 products-list">
                         <!-- if -->
-                        {%if item.product.img_one.url%}
+                        {% if item.product.img_one.url %}
                         <img class="img-fluid float-left" id="image-take" src="{{item.product.img_one.url}}" alt="">
                         <!-- else -->
-                        {%else%}
+                        {% else %}
                         <img class="img-fluid float-left" id="image-take" src="" alt="">
                         <!-- end -->
-                        {%endif%}
+                        {% endif %}
                         <div class="float-left item-detail">
                             <p class=""> <span style="font-size: 16px;">{{item.product.title}}</span></p>
                             $<span id="price">{{item.product.price}}</span>
                         </div>
                     </div>
-                    {%endfor%}
+                    {% endfor %}
+
+                </div>
+                <hr>
+                <div class="sub-total float-right">
+                    <h6>SUBTOTAL</h4>
+                        <h5 class="float-right">$<span id="order-price">{{order.get_cart_total}}</span></h5>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- content stop -->
 {% endblock main_content %}
 <!-- main block stops here -->
 {% block scripts %}
 <!-- script tag start -->
+<script>
+    $(".2checkout-pay").css('display', 'none');
+</script>
+<script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
 <script src="{%static 'front/js/checkout.js'%}"></script>
+<script>
+    // Called when token created successfully.
+    var successCallback = function(data) {
+        var myForm = document.getElementById('myCCForm');
+
+        // Set the token as the value for the token input
+        myForm.token.value = data.response.token.token;
+        console.log(data.response.token.token);
+        // IMPORTANT: Here we call `submit()` on the form element directly instead of using jQuery to prevent and infinite token request loop.
+        myForm.submit();
+    };
+
+    // Called when token creation fails.
+    var errorCallback = function(data) {
+        if (data.errorCode === 200) {
+            alert(data.errorCode);
+        } else {
+            alert(data.errorMsg);
+        }
+    };
+
+    var tokenRequest = function() {
+        // Setup token request arguments
+        var args = {
+            sellerId: "250407438565",
+            publishableKey: "1BD6B36C-10C6-499F-AA49-96BF598F86CC",
+            ccNo: $("#ccNo").val(),
+            cvv: $("#cvv").val(),
+            expMonth: $("#expMonth").val(),
+            expYear: $("#expYear").val()
+        };
+
+        // Make the token request
+        TCO.requestToken(successCallback, errorCallback, args);
+    };
+    $(function() {
+        // Pull in the public encryption key for our environment
+        TCO.loadPubKey('production');
+
+        $("#myCCForm").submit(function(e) {
+            // Call our token request function
+            tokenRequest();
+
+            // Prevent form from submitting
+            return false;
+        });
+    });
+</script>
+
 <!-- script tag stop -->
 {% endblock scripts %}

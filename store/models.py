@@ -56,6 +56,11 @@ class Order(models.Model):
         total = sum([item.quantity for item in orderitems])
         return total
 
+    @property
+    def order_id_list(self):
+        orderitems = self.orderitem_set.all()
+        order_id = [item.id for item in orderitems]
+        return order_id
     # @property
     # def shipping(self):
     #     shipping = False

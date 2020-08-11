@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    $('.all').css('display', 'none')
-    $('.bd').css('display', 'none')
+    $('.all').css('display', 'none');
+    $('.bd').css('display', 'none');
+
     $("select#select-source").change(function() {
         var selectedCountry = $(this).children("option:selected").val();
         if (selectedCountry) {
@@ -19,10 +20,7 @@ $(document).ready(function() {
     $("#rocket").on('click', function() {
         alert("Thanks for purchas with rocket");
     })
-    $("#stripe").on('click', function() {
-        alert("Thanks for purchas with stripe");
-    })
     $("#check2out").on('click', function() {
-        alert("Thanks for purchas with 2checkout");
+        $(".2checkout-pay").css('display', '');
     })
 });

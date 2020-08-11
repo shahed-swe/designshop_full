@@ -7,6 +7,8 @@ from django.db import connection
 import random
 from django.contrib.auth.models import User
 import json
+import twocheckout
+from twocheckout import TwocheckoutError
 # from django.core.context_processors import csrf
 # Create your views here.
 
@@ -143,7 +145,8 @@ def checkout(request):
     social_link = Main.objects.all()
     over_link = overlayLink.objects.all()
     abt = about.objects.all()
-    
+    # Setup credentials and environment
+
     if not request.user.is_authenticated:
         return redirect('/login/')
     if request.user.is_authenticated and not request.user.is_staff:
@@ -155,3 +158,38 @@ def checkout(request):
         order = {'get_cart_items': 0, 'get_cart_total': 0}
     context = {"title": "Store", "social": social_link, "about": abt,"overlay": over_link,'items': items, 'order': order}
     return render(request,'front/checkout.html',context)
+
+
+def checkout_submit(request):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
+    print(request.POST['all_item'])
+    twocheckout.Api.auth_credentials({
+        'private_key': '6351F9E3-A894-4BA0-88AC-CB25D3D3BB4B',
+        'seller_id': '250407438565'
+    })
+    params = {
+        'merchantOrderId': '1',
+        'token': request.POST['token'],
+        'currency': 'USD',
+        'total': request.POST['total-value'],
+        'billingAddr': {
+            'name': request.POST['card-holder'],
+            'card': request.POST['card-number'],
+            'expmonth': request.POST['month'],
+            'expYear': request.POST['year'],
+            'addrLine1': request.POST['address'],
+            'city': request.POST['city'],
+            'state': request.POST['state'],
+            'zipCode': request.POST['zip'],
+            'country': request.POST['country'],
+            'email': request.POST['email'],
+            'phoneNumber': request.POST['phone'],
+        }
+    }
+    return JsonResponse(params, safe=False)
+    # try:
+    #     result = twocheckout.Charge.authorize(params)
+    #     return JsonResponse(result.responseCode, safe=False)
+    # except TwocheckoutError as error:
+    #     return JsonResponse(error.msg, safe=False)
