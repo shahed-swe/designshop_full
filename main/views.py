@@ -62,3 +62,29 @@ def myregister(request):
 def mylogout(request):
     logout(request)
     return redirect('/')
+
+
+def terms_and_conditions(request):
+    social_link = Main.objects.all()
+    over_link = overlayLink.objects.all()
+    abt = about.objects.all()
+    if request.user.is_authenticated and not request.user.is_staff:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
+    else:
+        order = {'get_cart_items': 0, 'get_cart_total': 0}
+    return render(request, 'front/terms_and_condition.html', {"title": "Home", "social": social_link, "overlay": over_link, "about": abt, "range": range(8), 'order': order})
+
+
+def privacy_policy(request):
+    social_link = Main.objects.all()
+    over_link = overlayLink.objects.all()
+    abt = about.objects.all()
+    if request.user.is_authenticated and not request.user.is_staff:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
+    else:
+        order = {'get_cart_items': 0, 'get_cart_total': 0}
+    return render(request, 'front/privacy_policy.html', {"title": "Home", "social": social_link, "overlay": over_link, "about": abt, "range": range(8), 'order': order})

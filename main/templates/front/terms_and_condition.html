@@ -1,0 +1,105 @@
+<!-- extending base html -->
+{%extends 'user_base.html'%}
+<!-- base template extended -->
+<!-- loading static -->
+{%load static%}
+<!-- static files has been loaded -->
+{% block main_content %}
+<!-- main block starts here -->
+<!-- content starts -->
+<style>
+    body {
+        background-color: #1a1e23;
+        font-family: "Red Hat Text", sans-serif;
+    }
+    
+    .banner-section {
+        display: none;
+    }
+    
+    .terms-section {
+        font-family: "Red Hat Text", sans-serif;
+        padding-top: 80px;
+    }
+    
+    .terms-section h1 {
+        color: white;
+    }
+    
+    .bar {
+        border-bottom: 1px solid #6c77893f;
+    }
+    
+    .main-section {
+        padding-top: 20px;
+    }
+    
+    .main-section h6 {
+        color: white;
+        text-align: justify;
+        font-weight: lighter;
+        padding-top: 20px;
+    }
+    
+    .main-section b {
+        font-weight: 900;
+    }
+    
+    .main-section h2 {
+        font-weight: lighter;
+        color: white;
+        padding-top: 20px;
+    }
+</style>
+<section class="terms-section">
+    <div class="container">
+        <h1>Terms of Service</h1>
+    </div>
+</section>
+<div class="bar"></div>
+<section class="main-section first">
+    <div class="container">
+        <h6>Our Designing services provide top class designing elements with your requirements. Also provide High quality, unique, creative designs. A 24x7x365 customer support, 16 hours live chat support, sales and billing support over the phone is also
+            available as well.</h6>
+
+        <h2>Accepting These Terms</h2>
+        <h6>The Terms are a legally binding contract between you and Design Shop100. The Site is intended for users who are at least 13 years of age. All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have
+            the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.</h6>
+
+        <h2>User Registration</h2>
+        <h6>You may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine,
+            in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</h6>
+
+        <h2>Your Use of Our Services</h2>
+        <h6><b>Don’t Use Our Services to Break the Law.</b> You agree that you will not violate any laws in connection with your use of the Services. This includes any local, state, federal, and international laws that may apply to you. For example, it’s
+            your responsibility to obtain any permits or licenses that your shop requires; you may not sell anything that violates any laws; you must comply with our Sanctions Policy, and you may not engage in fraud (including false claims or infringement
+            notices), theft, anti-competitive conduct, threatening conduct, or any other unlawful acts or crimes against Design Shop100, another Design Shop100, or a third party.</h6>
+
+        <h6><b>Don’t Use Our Services to Break the Law.</b>You agree not to crawl, scrape, or spider any page of the Services or to reverse engineer or attempt to obtain the source code of the Services.</h6>
+
+        <h6><b>Don’t Try to Harm Our Systems. </b>You agree not to interfere with or try to disrupt our Services, for example by distributing a virus or other harmful computer code.</h6>
+
+        <h6><b>Follow Our Trademark Policy.</b>The name " Design Shop100" and the other Design Shop100 marks, phrases, logos, and designs that we use in connection with our Services (the Design Shop100 Trademarks), are trademarks, service marks, or trade
+            dress of Design Shop100.</h6>
+
+        <h6><b>Share Your Ideas. </b>We love your suggestions and ideas! They can help us improve your experience and our Services. Any unsolicited ideas or other materials you submit to Design Shop100 (not including Your Content or items you sell through
+            our Services) are considered non-confidential and non-proprietary to you. You grant us a non-exclusive, worldwide, royalty-free, irrevocable, sub-licensable, perpetual license to use and publish those ideas and materials for any purpose, without
+            compensation to you.</h6>
+
+        <h6><b>Talk to Us Online. </b>From time to time, Design Shop100 will provide you with certain legal information in writing. By using our Services, you’re agreeing to our Electronic Communications Policy, which describes how we provide that information
+            to you. It says that we can send you information electronically (such as by email) instead of mailing your paper copies (it’s better for the environment), and that your electronic agreement is the same as your signature on paper.</h6>
+
+        <h2>Advertisers</h2>
+        <h6>We are allowing any advertisers to display their advertisements and other information in certain areas of the Site, such as sidebar advertisements or banner advertisements. If you are an advertiser, you shall take full responsibility for any advertisements
+            you place on the Site and any services provided on the Site or products sold through those advertisements. Further, as an advertiser, you warrant and represent that you possess all rights and authority to place advertisements on the Site,
+            including, but not limited to, intellectual property rights, publicity rights, and contractual rights. We simply provide the space to place such advertisements, and we have no other relationship with advertisers.</h6>
+    </div>
+</section>
+<!-- content stop -->
+{% endblock main_content %}
+<!-- main block stops here -->
+{% block scripts %}
+<!-- script tag start -->
+
+<!-- script tag stop -->
+{% endblock scripts %}
