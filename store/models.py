@@ -4,7 +4,7 @@ from categories.models import Category
 from django.contrib.auth.models import User
 # Create your models here.
 
-class store(models.Model):
+class product(models.Model):
     ck = Category.objects.all()
     categories = []
     for i in ck:
@@ -72,7 +72,7 @@ class Order(models.Model):
     
 
 class OrderItem(models.Model):
-    product = models.ForeignKey(store, on_delete=models.SET_NULL, blank=True, null=True)
+    product = models.ForeignKey(product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.IntegerField(default=0,null=True,blank=True)
     data_added = models.DateTimeField(auto_now_add=True)

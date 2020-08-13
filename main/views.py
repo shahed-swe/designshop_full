@@ -88,3 +88,5 @@ def privacy_policy(request):
     else:
         order = {'get_cart_items': 0, 'get_cart_total': 0}
     return render(request, 'front/privacy_policy.html', {"title": "Home", "social": social_link, "overlay": over_link, "about": abt, "range": range(8), 'order': order})
+
+

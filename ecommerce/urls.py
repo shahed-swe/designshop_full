@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'', include('store.urls')),
     url(r'', include('about.urls')),
 ]
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
