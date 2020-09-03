@@ -5,7 +5,7 @@
     }
 </style>
 <header class="header-section">
-    <nav class="main-navbar fixed-top">
+    <nav class="main-navbar fixed-top" id="fixedbar">
         <div class="container" id="fixednav">
             <!-- menu -->
             <ul class="main-menu" id="myDIV">
@@ -18,8 +18,7 @@
                 <li><a class="atn " href="#">Custom</a>
                     <li><a class="atn " href="/about">About</a></li>
                     {% comment %}
-                    <li><a class="atn " href="#">{{user}}</a></li> {% endcomment %} 
-                {% if user.is_authenticated %}
+                    <li><a class="atn " href="#">{{user}}</a></li> {% endcomment %} {% if user.is_authenticated %}
 
                 </li>
                 <li class="shopping-card float-right">
@@ -48,3 +47,9 @@
         </div>
     </nav>
 </header>
+<!-- <script>
+    $('#fixedbar ul li a').click(function() {
+        $('a').parent().removeClass('active');
+        $(this).parent().addClass('active');
+    })
+</script> -->

@@ -49,9 +49,9 @@ def product_details(request,slug):
     else:
         items = []
         order = {'get_cart_items': 0, 'get_cart_total': 0}
-    product = product.objects.filter(slug=slug)
+    product_dat = product.objects.filter(slug=slug)
     context = {"title": "Store", "social": social_link, "about": abt,
-               "overlay": over_link, "product": product, "categories": cat, "number_prod": str(len(prod)), "number": num, 'order': order}
+               "overlay": over_link, "product": product_dat, "categories": cat, "number_prod": str(len(prod)), "number": num, 'order': order}
     return render(request, 'front/details.html', context)
 
 # for countring the category
