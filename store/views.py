@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from main.models import Main, overlayLink, about
-from .models import *
+from store.models import *
 from categories.models import Category
 from django.db import connection
 import random
@@ -19,7 +19,7 @@ def store_package(request):
     over_link = overlayLink.objects.all()
     abt = about.objects.all()
     # prod = store.objects.all()
-    prod = product.objects.all()
+    prod = store.objects.all()
     num = random.randint(1,len(prod))
     cat = Category.objects.all()
     if request.user.is_authenticated and not request.user.is_staff:
@@ -38,7 +38,7 @@ def product_details(request,slug):
     over_link = overlayLink.objects.all()
     abt = about.objects.all()
     # prod = store.objects.all()
-    prod = product.objects.all()
+    prod = store.objects.all()
     num = random.randint(1, len(prod))
     cat = Category.objects.all()
     if request.user.is_authenticated and not request.user.is_staff:
@@ -49,7 +49,7 @@ def product_details(request,slug):
     else:
         items = []
         order = {'get_cart_items': 0, 'get_cart_total': 0}
-    product_dat = product.objects.filter(slug=slug)
+    product_dat = store.objects.filter(slug=slug)
     context = {"title": "Store", "social": social_link, "about": abt,
                "overlay": over_link, "product": product_dat, "categories": cat, "number_prod": str(len(prod)), "number": num, 'order': order}
     return render(request, 'front/details.html', context)
@@ -79,7 +79,7 @@ def get_category_data(request):
     # query data
     count = counting(text)
     # counting data
-    prod = len(product.objects.all())  # counting how many products are there
+    prod = len(store.objects.all())  # counting how many products are there
     data = list(data)
     data.append(prod)
     data.append(count)
@@ -88,7 +88,7 @@ def get_category_data(request):
     # return render(request, 'front/store.html', {'data':data})
 
 def counting(val):
-    count = product.objects.filter(category=val)
+    count = store.objects.filter(category=val)
     return len(count)
     
 def my_custom_sql(query):
@@ -121,7 +121,7 @@ def updateItem(request):
     # print(productId)
     # print(action)
     customer = request.user.customer
-    product = product.objects.get(id=productId)
+    product = store.objects.get(id=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
     orderItem,created = OrderItem.objects.get_or_create(order=order, product=product)
@@ -187,9 +187,9 @@ def checkout_submit(request):
             'phoneNumber': request.POST['phone'],
         }
     }
-    return JsonResponse(params, safe=False)
-    # try:
-    #     result = twocheckout.Charge.authorize(params)
-    #     return JsonResponse(result.responseCode, safe=False)
-    # except TwocheckoutError as error:
-    #     return JsonResponse(error.msg, safe=False)
+    # return JsonResponse(params, safe=False)
+    try:
+        result = twocheckout.Charge.authorize(params)
+        return JsonResponse(result.responseCode, safe=False)
+    except TwocheckoutError as error:
+        return JsonResponse(error.msg, safe=False)

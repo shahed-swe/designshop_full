@@ -5,11 +5,22 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from store.models import *
 from django.db import IntegrityError
+
 # get_object_or_404 --> to raise the error if not found
 # redirect() --> used to redirect our web page
 from .models import Main,overlayLink,about
 from .forms import CreateUserForm
 # Create your views here.
+
+
+def handler404(request, exception, template_name="404.html"):
+    response = render(request,template_name)
+    response.status_code = 404
+    return response
+
+
+def handler500(request, *args, **argv):
+    return render(request, '500.html', status=500)
 
 def home(request):
     social_link = Main.objects.all()
@@ -99,3 +110,14 @@ def privacy_policy(request):
     return render(request, 'front/privacy_policy.html', {"title": "Home", "social": social_link, "overlay": over_link, "about": abt, "range": range(8), 'order': order})
 
 
+def custom_idea(request):
+    social_link = Main.objects.all()
+    over_link = overlayLink.objects.all()
+    abt = about.objects.all()
+    if request.user.is_authenticated and not request.user.is_staff:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
+    else:
+        order = {'get_cart_items': 0, 'get_cart_total': 0}
+    return render(request, 'front/custom.html', {"title": "Home", "social": social_link, "overlay": over_link, "about": abt, "range": range(8), 'order': order})

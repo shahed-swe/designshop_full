@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a%7h%2^9)26iw@5)%=5x3#lp5k)pvd2f_0-oqx(^t7=f=%6uyt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'categories',
     'store',
     'about',
+    'tawkto',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'shahedtalukder51@gmail.com'
 EMAIL_HOST_PASSWORD = 'srsas1234.?dfin'
+
+
+TAWKTO_ID_SITE = '5fa949c48e1c140c2abc3b0f'
+TAWKTO_API_KEY = ''
+TAWKTO_IS_SECURE = False
+
