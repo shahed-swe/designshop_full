@@ -1,0 +1,34 @@
+{% extends 'user_base.html' %}
+<!-- extending base page -->
+<!-- loading static files -->
+{% load static %}
+<!-- static file loaded -->
+<!-- block content started -->
+{% block main_content %}
+<!-- content started -->
+<style>
+    h1 {
+        font-size: larger;
+        font-weight: 300;
+        text-align: center;
+        padding-top: 200px;
+    }
+    
+    h3 {
+        font-size: larger;
+        font-weight: 300;
+        text-align: center;
+    }
+</style>
+<section>
+    <h1>{{error}}</h1>
+    <h3>Please Try with something else<br>Thank you</h3>
+</section>
+<!-- content stopped -->
+{% endblock main_content %}
+<!-- block ends here -->
+<!-- block scripts start here -->
+{% block scripts %}
+<!-- stop -->
+{% endblock scripts%}
+<!-- block script ends here -->

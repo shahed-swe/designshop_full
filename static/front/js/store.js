@@ -14,7 +14,7 @@ function Result() {
     var data = msg.toLowerCase();
     if (data) {
         $("#products #myTable").filter(function() {
-            // console.log($(this))
+
             $(this).toggle($(this).text().toLowerCase().indexOf(data) > -1)
         });
     } else {
@@ -29,7 +29,6 @@ $(document).ready(function() {
     $.getJSON("/category", function(result) {
         // $('#all_cat div').append('<li><a id="all" href="#">' + i + '</a><span class="float-right">' + field + '</span></li>');
         $.each(result, function(i, field) {
-            // console.log(i, field);
             $('#all_cat form').append('<li><a id="all' + i + '" class="all" href="#">' + i + '</a><span class="float-right">' + field + '</span></li>');
         })
     })
@@ -44,7 +43,6 @@ $(document).ready(function() {
             $('.product-filter-section .new-card').css('display', 'none');
             $('.product-filter-section .new-card').slice(0, 9).show();
         } else {
-            console.log(text);
             $("#result-show").css('display', '');
             document.getElementById('res-val').innerText = data[1]
             $("#products #myTable").filter(function() {
