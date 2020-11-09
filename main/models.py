@@ -38,3 +38,14 @@ class about(models.Model):
     def __str__(self):
         return self.name +" | "+str(self.pk)
 
+class customForm(models.Model):
+    user = models.CharField(max_length=120, blank=True, null=True)
+    email = models.CharField(max_length=120, blank=True, null=True)
+    idea_category = models.CharField(max_length=120, blank=True, null=True)
+    idea_description = models.CharField(max_length=1000, blank=True, null=True)
+
+    class Meta:
+        db_table = 'custom'
+    
+    def __str__(self):
+        return self.idea_category + ' | '+str(self.pk)
