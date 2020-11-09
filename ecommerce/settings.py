@@ -151,3 +151,12 @@ TAWKTO_ID_SITE = '5fa949c48e1c140c2abc3b0f'
 TAWKTO_API_KEY = ''
 TAWKTO_IS_SECURE = False
 
+
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/2.2/howto/static-files/
+# # for static files
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
+# STATICFILES_DIRS = [BASE_DIR + "/assets", ]
+# STATIC_ROOT = '/home/desikwsj/public_html/static'
+# MEDIA_ROOT = '/home/desikwsj/public_html/media'
