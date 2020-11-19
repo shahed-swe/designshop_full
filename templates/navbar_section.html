@@ -18,7 +18,10 @@
                 <li><a class="atn " href="/custom">Custom</a>
                     <li><a class="atn " href="/about">About</a></li>
                     {% comment %}
-                    <li><a class="atn " href="#">{{user}}</a></li> {% endcomment %} {% if user.is_authenticated %}
+                    <li><a class="atn " href="#">{{user}}</a></li>
+                    {% endcomment %}
+                    <!-- authentication -->
+                    {% if user.is_authenticated %}
 
                 </li>
                 <li class="shopping-card float-right">

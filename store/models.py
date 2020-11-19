@@ -5,13 +5,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class store(models.Model):
-    ck = Category.objects.all()
-    categories = []
-    for i in ck:
-        categories.append((i.category,i.category))
     slug = models.SlugField(max_length=120,null=True,blank=False)
     title = models.CharField(max_length=120, null=True)
-    category = models.CharField(max_length=120,null=True,choices=categories)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, default='_')
     price = models.IntegerField(null=True, default=0)
     img_one = models.ImageField(upload_to='product/image/', null=True)
     img_two = models.ImageField(upload_to='product/image/',null=True)

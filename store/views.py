@@ -20,7 +20,10 @@ def store_package(request):
     abt = about.objects.all()
     # prod = store.objects.all()
     prod = store.objects.all()
-    num = random.randint(1,len(prod))
+    if len(prod) > 0:
+        num = random.randint(1,len(prod))
+    else:
+        num = 0
     cat = Category.objects.all()
     if request.user.is_authenticated and not request.user.is_staff:
         customer = request.user.customer

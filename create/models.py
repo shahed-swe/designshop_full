@@ -1,7 +1,7 @@
 from django.db import models
 from categories.models import Category
 # Create your models here.
-class custom(models.Model):
+class Custom(models.Model):
     design_type = [
         ('Pictorial','Pictorial'),
         ('Symbolic','Symbolic'),
@@ -30,4 +30,4 @@ class custom(models.Model):
         db_table = "custom_design"
 
     def __str__(self):
-        return self.user_id + " | " + self.categories + " | "+self.pk
+        return str(self.user_id) + " | " + self.categories + " | "+str(self.pk)

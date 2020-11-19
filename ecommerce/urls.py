@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'', include('package.urls')),
     url(r'', include('store.urls')),
     url(r'', include('about.urls')),
+    url(r'', include('create.urls')),
 ]
 handler404 = 'main.views.handler404'
 handler500 = 'main.views.handler500'
