@@ -15,7 +15,10 @@
                 <li><a class="atn active" href="/">Home</a></li>
                 <li><a class="atn " href="/package">Package</a></li>
                 <li><a class="atn " href="/store">Store</a></li>
+                {%if user.is_authenticated%}
                 <li><a class="atn " href="/custom">Custom</a>
+                    <!--  -->
+                    {%endif%}
                     <li><a class="atn " href="/about">About</a></li>
                     {% comment %}
                     <li><a class="atn " href="#">{{user}}</a></li>

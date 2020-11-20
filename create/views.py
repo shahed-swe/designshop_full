@@ -7,7 +7,7 @@ from django.db import IntegrityError
 def custom(request):
     if not request.user.is_authenticated:
         try:
-            redirect('/login')
+            return redirect('/login')
         except ValueError as e:
             print(e)
     else:
@@ -23,6 +23,7 @@ def custom(request):
                 description = request.POST['description']
                 create = Custom(user_id=request.user, categories=categories, types=types, color_preference=color, style=style, description=description)
                 create.save()
+                print(request.user.email)
                 redirect('/custom')
             except IntegrityError as e:
                 social_link = Main.objects.all()
