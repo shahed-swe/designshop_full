@@ -11,6 +11,8 @@ def about_page(request):
             try:
                 name = contact.cleaned_data['full_name']
                 email = contact.cleaned_data['email']
+                subject = contact.cleaned_data['subject']
+                description = contact.cleaned_data['description']
                 print(name,email)
                 contact.save()
                 return redirect('/about/')
