@@ -17,6 +17,22 @@ class ContactModel(forms.ModelForm):
         }
     ))
     
+    subject = forms.CharField(max_length=120, widget=forms.TextInput(
+        attrs={
+            'class':'form-control subject',
+            'id':'subject',
+            'placeholder':'Enter Subject About Your Problem',
+        }
+    ))
+
+    description = forms.CharField(max_length=500, widget=forms.Textarea(
+        attrs={
+            'class':'form-control',
+            'id':'description',
+            'placeholder':'Write....'
+        }
+    ))
+
     class Meta:
         model = contact
-        fields = ['full_name','email']
+        fields = ['full_name','email','subject','description']
