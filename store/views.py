@@ -75,30 +75,30 @@ def category_count(request):
     return JsonResponse(another_dict, safe=False)
 
 # for getting category data
-def get_category_data(request):
-    text = request.POST.get('text')
-    print(text)
-    data = my_custom_sql(text)
-    # query data
-    count = counting(text)
-    # counting data
-    prod = len(store.objects.all())  # counting how many products are there
-    data = list(data)
-    data.append(prod)
-    data.append(count)
-    print(data)
-    return JsonResponse(data, safe=False)
+# def get_category_data(request):
+#     text = request.POST.get('text')
+#     print(text)
+#     data = my_custom_sql(text)
+#     # query data
+#     count = counting(text)
+#     # counting data
+#     prod = len(store.objects.all())  # counting how many products are there
+#     data = list(data)
+#     data.append(prod)
+#     data.append(count)
+#     print(data)
+#     return JsonResponse(data, safe=False)
     # return render(request, 'front/store.html', {'data':data})
 
 def counting(val):
     count = store.objects.filter(category=val)
     return len(count)
     
-def my_custom_sql(query):
-    with connection.cursor() as cursor:
-        cursor.execute("select * from product_details where category = %s", [query])
-        row = cursor.fetchone()
-    return row
+# def my_custom_sql(query):
+#     with connection.cursor() as cursor:
+#         cursor.execute("select * from product_details where category = %s", [query])
+#         row = cursor.fetchone()
+#     return row
 
 # cart section
 def cart(request):

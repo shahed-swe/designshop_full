@@ -11,4 +11,4 @@ class Category(models.Model):
         db_table = 'prod_category'
 
     def __str__(self):
-        return self.category + ' | '+str(self.pk)
+        return self.category
