@@ -27,7 +27,7 @@ class ContactModel(forms.ModelForm):
 
     description = forms.CharField(max_length=500, widget=forms.Textarea(
         attrs={
-            'class':'form-control',
+            'class':'form-control description',
             'id':'description',
             'placeholder':'Write....'
         }

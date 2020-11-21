@@ -62,6 +62,7 @@ def category_count(request):
     ck = Category.objects.all()
     list1 = {}
     for i in ck:
+        print(i)
         list1.update({i.category: counting(i.category)})
 
     new_list = list(list1.values())

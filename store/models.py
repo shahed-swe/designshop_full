@@ -19,7 +19,7 @@ class store(models.Model):
         db_table = 'product_details'
 
     def __str__(self):
-        return self.title +' | '+self.category+' | '+str(self.pk)
+        return self.title +' | '+' | '+str(self.pk)
 
 
 class Customer(models.Model):
