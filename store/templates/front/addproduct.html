@@ -1,14 +1,28 @@
 {%extends 'user_base.html'%}
+<!-- load static -->
+{%load static%}
 <!-- extending base -->
 {%block main_content%}
 <!-- main block start -->
 <style>
     section {
-        padding-top: 100px;
+        padding-top: 50px;
     }
 </style>
-<section>
-
+<section class="main-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <h1 class="text-white" style="font-size: 60px;padding-bottom:15px">Add Product</h1>
+                <p class="text-white">Choose your loadout from our collection of ready-to-use graphics. Premium overlays, alerts, and templates - with new designs added weekly.</p>
+                <p class="text-white">Browse designs for Twitch, Mixer, YouTube, and Facebook Gaming. Enjoy multi-platform support across Streamlabs, StreamElements, and OBS Studio.</p>
+                <p class="text-white">Just download, set up, and stream.</p>
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 col-sm-10">
+                <img class="img-fluid w-75 header-image" src="{% static 'front/img/package-first.jpg'%}" alt="">
+            </div>
+        </div>
+    </div>
 </section>
 <section>
     <div class="container">

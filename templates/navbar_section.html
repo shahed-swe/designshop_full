@@ -20,9 +20,9 @@
                     <!--  -->
                     {%endif%}
                     <li><a class="atn " href="/about">About</a></li>
-                    {% comment %}
-                    <li><a class="atn " href="#">{{user}}</a></li>
-                    {% endcomment %}
+                    {%if user.is_superuser%}
+                    <li><a class="atn " href="/addproduct">Add Product</a></li>
+                    {%endif%}
                     <!-- authentication -->
                     {% if user.is_authenticated %}
 

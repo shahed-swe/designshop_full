@@ -200,12 +200,14 @@ def checkout_submit(request):
 
 
 def addProduct(request):
+    if not request.user.is_authenticated and not request.user.is_superuser:
+        return redirect('/login')
     if request.method == "POST":
         form = addproductForm(request.POST, request.FILES)
         if form.is_valid():
             try:
                 print(form)
-                # form.save()
+                form.save()
             except:
                 pass
     form = addproductForm()
