@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a%7h%2^9)26iw@5)%=5x3#lp5k)pvd2f_0-oqx(^t7=f=%6uyt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecommerce',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'desikwsj_designshop_100',
+        'USER': 'desikwsj_shahed',
+        'PASSWORD': 'srsas12.?dfin',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -126,11 +126,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 # for static files
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# for media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# # for media files
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -143,11 +143,11 @@ EMAIL_HOST_PASSWORD = 'srsas1234.?dfin'
 
 
 
-# # Static files (CSS, JavaScript, Images)
-# # https://docs.djangoproject.com/en/2.2/howto/static-files/
-# # for static files
-# STATIC_URL = '/static/'
-# MEDIA_URL = '/media/'
-# STATICFILES_DIRS = [BASE_DIR + "/assets", ]
-# STATIC_ROOT = '/home/desikwsj/public_html/static'
-# MEDIA_ROOT = '/home/desikwsj/public_html/media'
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# for static files
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [BASE_DIR + "/assets", ]
+STATIC_ROOT = '/home/desikwsj/public_html/static'
+MEDIA_ROOT = '/home/desikwsj/public_html/media'
