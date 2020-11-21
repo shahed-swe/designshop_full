@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2020 at 08:42 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.31
+-- Generation Time: Nov 21, 2020 at 01:39 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `about` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `about` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `about` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about`
@@ -49,7 +50,7 @@ INSERT INTO `about` (`id`, `name`, `about`) VALUES
 CREATE TABLE `auth_group` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,7 @@ CREATE TABLE `auth_group_permissions` (
   `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,7 @@ CREATE TABLE `auth_permission` (
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `auth_permission`
@@ -117,42 +118,46 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (34, 'Can change overlay link', 9, 'change_overlaylink'),
 (35, 'Can delete overlay link', 9, 'delete_overlaylink'),
 (36, 'Can view overlay link', 9, 'view_overlaylink'),
-(37, 'Can add package', 10, 'add_package'),
-(38, 'Can change package', 10, 'change_package'),
-(39, 'Can delete package', 10, 'delete_package'),
-(40, 'Can view package', 10, 'view_package'),
-(41, 'Can add category', 11, 'add_category'),
-(42, 'Can change category', 11, 'change_category'),
-(43, 'Can delete category', 11, 'delete_category'),
-(44, 'Can view category', 11, 'view_category'),
-(45, 'Can add customer', 12, 'add_customer'),
-(46, 'Can change customer', 12, 'change_customer'),
-(47, 'Can delete customer', 12, 'delete_customer'),
-(48, 'Can view customer', 12, 'view_customer'),
-(49, 'Can add store', 13, 'add_store'),
-(50, 'Can change store', 13, 'change_store'),
-(51, 'Can delete store', 13, 'delete_store'),
-(52, 'Can view store', 13, 'view_store'),
-(53, 'Can add shipping address', 14, 'add_shippingaddress'),
-(54, 'Can change shipping address', 14, 'change_shippingaddress'),
-(55, 'Can delete shipping address', 14, 'delete_shippingaddress'),
-(56, 'Can view shipping address', 14, 'view_shippingaddress'),
-(57, 'Can add order', 15, 'add_order'),
-(58, 'Can change order', 15, 'change_order'),
-(59, 'Can delete order', 15, 'delete_order'),
-(60, 'Can view order', 15, 'view_order'),
+(37, 'Can add custom form', 10, 'add_customform'),
+(38, 'Can change custom form', 10, 'change_customform'),
+(39, 'Can delete custom form', 10, 'delete_customform'),
+(40, 'Can view custom form', 10, 'view_customform'),
+(41, 'Can add package', 11, 'add_package'),
+(42, 'Can change package', 11, 'change_package'),
+(43, 'Can delete package', 11, 'delete_package'),
+(44, 'Can view package', 11, 'view_package'),
+(45, 'Can add category', 12, 'add_category'),
+(46, 'Can change category', 12, 'change_category'),
+(47, 'Can delete category', 12, 'delete_category'),
+(48, 'Can view category', 12, 'view_category'),
+(49, 'Can add customer', 13, 'add_customer'),
+(50, 'Can change customer', 13, 'change_customer'),
+(51, 'Can delete customer', 13, 'delete_customer'),
+(52, 'Can view customer', 13, 'view_customer'),
+(53, 'Can add order', 14, 'add_order'),
+(54, 'Can change order', 14, 'change_order'),
+(55, 'Can delete order', 14, 'delete_order'),
+(56, 'Can view order', 14, 'view_order'),
+(57, 'Can add shipping address', 15, 'add_shippingaddress'),
+(58, 'Can change shipping address', 15, 'change_shippingaddress'),
+(59, 'Can delete shipping address', 15, 'delete_shippingaddress'),
+(60, 'Can view shipping address', 15, 'view_shippingaddress'),
 (61, 'Can add order item', 16, 'add_orderitem'),
 (62, 'Can change order item', 16, 'change_orderitem'),
 (63, 'Can delete order item', 16, 'delete_orderitem'),
 (64, 'Can view order item', 16, 'view_orderitem'),
-(65, 'Can add contact', 17, 'add_contact'),
-(66, 'Can change contact', 17, 'change_contact'),
-(67, 'Can delete contact', 17, 'delete_contact'),
-(68, 'Can view contact', 17, 'view_contact'),
-(69, 'Can add product', 13, 'add_product'),
-(70, 'Can change product', 13, 'change_product'),
-(71, 'Can delete product', 13, 'delete_product'),
-(72, 'Can view product', 13, 'view_product');
+(65, 'Can add store', 17, 'add_store'),
+(66, 'Can change store', 17, 'change_store'),
+(67, 'Can delete store', 17, 'delete_store'),
+(68, 'Can view store', 17, 'view_store'),
+(69, 'Can add contact', 18, 'add_contact'),
+(70, 'Can change contact', 18, 'change_contact'),
+(71, 'Can delete contact', 18, 'delete_contact'),
+(72, 'Can view contact', 18, 'view_contact'),
+(73, 'Can add custom', 19, 'add_custom'),
+(74, 'Can change custom', 19, 'change_custom'),
+(75, 'Can delete custom', 19, 'delete_custom'),
+(76, 'Can view custom', 19, 'view_custom');
 
 -- --------------------------------------------------------
 
@@ -166,21 +171,20 @@ CREATE TABLE `auth_user` (
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
   `username` varchar(150) NOT NULL,
-  `first_name` varchar(30) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
   `last_name` varchar(150) NOT NULL,
   `email` varchar(254) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$150000$UhPpltD05lgk$H6UiljV/Dh0RbPElaDOeIkQLwkkFW6zQrfwAxB+wYww=', '2020-09-01 15:48:18.469541', 1, 'shahed', '', '', 'shahed@gmail.com', 1, 1, '2020-06-27 12:52:25.474545'),
-(14, 'pbkdf2_sha256$150000$q1mO9tpmI12F$Civhzr7V2H6xybpzMes3r8eadPZoyufLlyQMIV88wqM=', '2020-08-11 17:33:12.569290', 0, 'shahedtalukder', 'Shahed', 'Talukder', 'shahedtalukder51@gmail.com', 0, 1, '2020-07-03 04:47:13.423676');
+(1, 'pbkdf2_sha256$216000$XpojkgcgyICg$KFBDVu5P5/2toQtT2uWW8+hDYunfS0X+28krnZ0iMLY=', '2020-11-21 12:29:43.465041', 1, 'shahed', '', '', 'shahedtalukder51@gmail.com', 1, 1, '2020-11-21 07:35:34.839542');
 
 -- --------------------------------------------------------
 
@@ -192,7 +196,7 @@ CREATE TABLE `auth_user_groups` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -204,7 +208,7 @@ CREATE TABLE `auth_user_user_permissions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -215,8 +219,47 @@ CREATE TABLE `auth_user_user_permissions` (
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `full_name` varchar(120) DEFAULT NULL,
-  `email` varchar(120) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `email` varchar(120) DEFAULT NULL,
+  `description` longtext,
+  `subject` varchar(120) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `full_name`, `email`, `description`, `subject`) VALUES
+(1, 'Shahed Talukder', 'shahedtalukder51@gmail.com', 'How to make python program using hantan', 'Python Integration with Demo data');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `custom`
+--
+
+CREATE TABLE `custom` (
+  `id` int(11) NOT NULL,
+  `user` varchar(120) DEFAULT NULL,
+  `email` varchar(120) DEFAULT NULL,
+  `idea_category` varchar(120) DEFAULT NULL,
+  `idea_description` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `custom_design`
+--
+
+CREATE TABLE `custom_design` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(120) DEFAULT NULL,
+  `types` varchar(20) DEFAULT NULL,
+  `color_preference` varchar(220) DEFAULT NULL,
+  `style` varchar(40) DEFAULT NULL,
+  `description` longtext,
+  `categories` varchar(120) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -227,93 +270,28 @@ CREATE TABLE `contact` (
 CREATE TABLE `django_admin_log` (
   `id` int(11) NOT NULL,
   `action_time` datetime(6) NOT NULL,
-  `object_id` longtext DEFAULT NULL,
+  `object_id` longtext,
   `object_repr` varchar(200) NOT NULL,
   `action_flag` smallint(5) UNSIGNED NOT NULL,
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_admin_log`
 --
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
-(1, '2020-06-27 12:55:15.545903', '1', 'Essential | 1', 1, '[{\"added\": {}}]', 10, 1),
-(2, '2020-06-27 12:56:10.131074', '2', 'Professional | 2', 1, '[{\"added\": {}}]', 10, 1),
-(3, '2020-06-27 12:56:37.122048', '3', 'Premium | 3', 1, '[{\"added\": {}}]', 10, 1),
-(4, '2020-06-27 12:57:18.057130', '1', 'about | 1', 1, '[{\"added\": {}}]', 7, 1),
-(5, '2020-06-27 12:58:11.054484', '1', 'youtube | 1', 1, '[{\"added\": {}}]', 9, 1),
-(6, '2020-06-27 13:00:17.393763', '1', 'Free | 1', 1, '[{\"added\": {}}]', 11, 1),
-(7, '2020-06-27 13:00:25.168455', '2', 'Logo | 2', 1, '[{\"added\": {}}]', 11, 1),
-(8, '2020-06-27 13:00:32.431814', '3', 'Animation | 3', 1, '[{\"added\": {}}]', 11, 1),
-(9, '2020-06-27 13:00:40.843834', '4', 'Video | 4', 1, '[{\"added\": {}}]', 11, 1),
-(10, '2020-06-27 13:00:46.752890', '4', 'Video Animation | 4', 2, '[{\"changed\": {\"fields\": [\"category\"]}}]', 11, 1),
-(11, '2020-06-27 13:00:55.836024', '5', 'Viper Video | 5', 1, '[{\"added\": {}}]', 11, 1),
-(12, '2020-06-27 13:04:23.389161', '1', 'Plasma Stream Alert | Video Animation | 1', 1, '[{\"added\": {}}]', 13, 1),
-(13, '2020-06-27 13:05:09.284105', '2', 'Valor Essentials Stream Package | Free | 2', 1, '[{\"added\": {}}]', 13, 1),
-(14, '2020-06-27 13:06:03.327949', '2', 'Valor Essentials Stream Package | Free | 2', 2, '[]', 13, 1),
-(15, '2020-06-27 13:06:46.647227', '3', 'Libra Stream Package | Viper VIdeo | 3', 1, '[{\"added\": {}}]', 13, 1),
-(16, '2020-06-27 13:07:50.829912', '4', 'Libra Stinger Transition | Animation | 4', 1, '[{\"added\": {}}]', 13, 1),
-(17, '2020-06-27 13:08:50.469531', '5', 'Spellbreaker Stinger Transition | Video Animation | 5', 1, '[{\"added\": {}}]', 13, 1),
-(18, '2020-06-27 13:18:32.481231', '1', 'Tarek Jamil', 1, '[{\"added\": {}}]', 12, 1),
-(19, '2020-06-27 13:45:14.579376', '1', '1', 2, '[{\"changed\": {\"fields\": [\"transaction_id\"]}}]', 15, 1),
-(20, '2020-06-27 13:45:33.178883', '1', 'OrderItem object (1)', 1, '[{\"added\": {}}]', 16, 1),
-(21, '2020-06-27 13:45:42.169354', '2', 'OrderItem object (2)', 1, '[{\"added\": {}}]', 16, 1),
-(22, '2020-06-27 13:45:50.492022', '3', 'OrderItem object (3)', 1, '[{\"added\": {}}]', 16, 1),
-(23, '2020-06-27 13:52:29.645045', '6', 'azad', 3, '', 4, 1),
-(24, '2020-06-27 13:52:29.649044', '2', 'tarikjamil', 3, '', 4, 1),
-(25, '2020-06-27 13:54:36.753427', '7', 'azad', 3, '', 4, 1),
-(26, '2020-06-27 13:56:23.787178', '9', 'azad', 3, '', 4, 1),
-(27, '2020-06-27 15:12:38.818857', '5', 'OrderItem object (5)', 3, '', 16, 1),
-(28, '2020-06-27 15:12:38.821858', '4', 'OrderItem object (4)', 3, '', 16, 1),
-(29, '2020-06-27 15:12:38.824859', '3', 'OrderItem object (3)', 3, '', 16, 1),
-(30, '2020-06-27 15:12:38.827858', '2', 'OrderItem object (2)', 3, '', 16, 1),
-(31, '2020-06-27 15:12:38.834859', '1', 'OrderItem object (1)', 3, '', 16, 1),
-(32, '2020-06-27 15:24:21.643310', '12', 'ashik', 3, '', 4, 1),
-(33, '2020-06-27 15:24:21.648310', '10', 'azad', 3, '', 4, 1),
-(34, '2020-06-27 15:51:07.272081', '10', 'OrderItem object (10)', 3, '', 16, 1),
-(35, '2020-06-27 15:51:07.277081', '9', 'OrderItem object (9)', 3, '', 16, 1),
-(36, '2020-06-27 15:51:07.284081', '8', 'OrderItem object (8)', 3, '', 16, 1),
-(37, '2020-06-27 15:51:07.287083', '7', 'OrderItem object (7)', 3, '', 16, 1),
-(38, '2020-06-27 15:51:07.290082', '6', 'OrderItem object (6)', 3, '', 16, 1),
-(39, '2020-06-27 15:54:03.117217', '13', 'OrderItem object (13)', 3, '', 16, 1),
-(40, '2020-06-27 15:54:03.121219', '12', 'OrderItem object (12)', 3, '', 16, 1),
-(41, '2020-06-27 15:54:03.126219', '11', 'OrderItem object (11)', 3, '', 16, 1),
-(42, '2020-06-27 15:56:33.491342', '14', 'OrderItem object (14)', 3, '', 16, 1),
-(43, '2020-06-27 16:11:59.162843', '18', 'OrderItem object (18)', 3, '', 16, 1),
-(44, '2020-06-27 16:11:59.164839', '17', 'OrderItem object (17)', 3, '', 16, 1),
-(45, '2020-06-27 16:11:59.166840', '16', 'OrderItem object (16)', 3, '', 16, 1),
-(46, '2020-06-27 16:11:59.169840', '15', 'OrderItem object (15)', 3, '', 16, 1),
-(47, '2020-06-27 18:06:26.912869', '48', 'OrderItem object (48)', 3, '', 16, 1),
-(48, '2020-06-27 18:06:26.915869', '47', 'OrderItem object (47)', 3, '', 16, 1),
-(49, '2020-06-27 18:06:26.917870', '46', 'OrderItem object (46)', 3, '', 16, 1),
-(50, '2020-06-27 18:06:26.919870', '45', 'OrderItem object (45)', 3, '', 16, 1),
-(51, '2020-06-27 18:06:26.921869', '44', 'OrderItem object (44)', 3, '', 16, 1),
-(52, '2020-06-27 18:06:26.923870', '43', 'OrderItem object (43)', 3, '', 16, 1),
-(53, '2020-06-27 18:06:26.925870', '42', 'OrderItem object (42)', 3, '', 16, 1),
-(54, '2020-06-27 18:06:26.931870', '41', 'OrderItem object (41)', 3, '', 16, 1),
-(55, '2020-06-27 18:06:26.933872', '40', 'OrderItem object (40)', 3, '', 16, 1),
-(56, '2020-06-27 18:06:26.935871', '39', 'OrderItem object (39)', 3, '', 16, 1),
-(57, '2020-06-27 18:06:26.939871', '20', 'OrderItem object (20)', 3, '', 16, 1),
-(58, '2020-06-27 18:06:26.942871', '19', 'OrderItem object (19)', 3, '', 16, 1),
-(59, '2020-06-27 18:18:55.458584', '65', 'OrderItem object (65)', 3, '', 16, 1),
-(60, '2020-06-27 18:22:14.274007', '68', 'OrderItem object (68)', 3, '', 16, 1),
-(61, '2020-06-27 18:34:35.736494', '36', 'Libra Stream Package | Logo | 36', 2, '[{\"changed\": {\"fields\": [\"category\"]}}]', 13, 1),
-(62, '2020-06-27 18:34:40.168171', '31', 'Libra Stream Package | Logo | 31', 2, '[{\"changed\": {\"fields\": [\"category\"]}}]', 13, 1),
-(63, '2020-07-03 04:46:14.079886', '13', 'azad', 3, '', 4, 1),
-(64, '2020-07-03 04:46:14.081886', '5', 'shahedtalukder', 3, '', 4, 1),
-(65, '2020-07-03 04:46:14.082887', '4', 'tarikjamil21', 3, '', 4, 1),
-(66, '2020-07-03 04:46:26.062226', '2', '2', 3, '', 15, 1),
-(67, '2020-07-03 04:46:26.065224', '1', '1', 3, '', 15, 1),
-(68, '2020-07-07 13:59:12.497298', '37', 'Libra Stinger Transition | Animation | 37', 2, '[{\"changed\": {\"fields\": [\"Product file\"]}}]', 13, 1),
-(69, '2020-07-08 12:27:45.965136', '1', 'Plasma Stream Alert | Video Animation | 1', 2, '[{\"changed\": {\"fields\": [\"Img two\"]}}]', 13, 1),
-(70, '2020-07-08 12:27:55.694371', '1', 'Plasma Stream Alert | Video Animation | 1', 2, '[{\"changed\": {\"fields\": [\"Img two\"]}}]', 13, 1),
-(71, '2020-08-13 10:48:39.348801', '1', 'Plasma Stream Alert | Video Animation | 1', 2, '[{\"changed\": {\"fields\": [\"img_one\", \"img_two\", \"img_three\"]}}]', 13, 1),
-(72, '2020-08-13 11:51:15.238023', '37', 'Libra Stinger Transition Help | Animation | 37', 2, '[{\"changed\": {\"fields\": [\"title\"]}}]', 13, 1),
-(73, '2020-08-13 11:51:26.618606', '37', 'Libra Stinger Transition | Animation | 37', 2, '[{\"changed\": {\"fields\": [\"title\"]}}]', 13, 1),
-(74, '2020-09-01 15:51:22.017532', '38', 'Libra Stinger Transition Help | Logo | 38', 1, '[{\"added\": {}}]', 13, 1);
+(1, '2020-11-21 07:36:07.310610', '1', 'Video Animation | 1', 1, '[{\"added\": {}}]', 12, 1),
+(2, '2020-11-21 07:36:12.025342', '2', 'Animation | 2', 1, '[{\"added\": {}}]', 12, 1),
+(3, '2020-11-21 07:36:20.983517', '3', 'Free | 3', 1, '[{\"added\": {}}]', 12, 1),
+(4, '2020-11-21 07:36:25.193622', '4', 'Viper VIdeo | 4', 1, '[{\"added\": {}}]', 12, 1),
+(5, '2020-11-21 07:36:35.720724', '5', 'Logo | 5', 1, '[{\"added\": {}}]', 12, 1),
+(6, '2020-11-21 07:40:42.831698', '1', 'youtube | 1', 1, '[{\"added\": {}}]', 9, 1),
+(7, '2020-11-21 11:11:46.317138', '1', 'Libra Stinger Transition |  | 1', 1, '[{\"added\": {}}]', 17, 1),
+(8, '2020-11-21 11:12:28.401929', '2', 'Spellbreaker Stinger Transition |  | 2', 1, '[{\"added\": {}}]', 17, 1),
+(9, '2020-11-21 11:13:12.225813', '3', 'Plasma Stream Alert |  | 3', 1, '[{\"added\": {}}]', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -325,30 +303,32 @@ CREATE TABLE `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_content_type`
 --
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
-(17, 'about', 'contact'),
+(18, 'about', 'contact'),
 (1, 'admin', 'logentry'),
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
-(11, 'categories', 'category'),
+(12, 'categories', 'category'),
 (5, 'contenttypes', 'contenttype'),
+(19, 'create', 'custom'),
 (7, 'main', 'about'),
+(10, 'main', 'customform'),
 (8, 'main', 'main'),
 (9, 'main', 'overlaylink'),
-(10, 'package', 'package'),
+(11, 'package', 'package'),
 (6, 'sessions', 'session'),
-(12, 'store', 'customer'),
-(15, 'store', 'order'),
+(13, 'store', 'customer'),
+(14, 'store', 'order'),
 (16, 'store', 'orderitem'),
-(13, 'store', 'product'),
-(14, 'store', 'shippingaddress');
+(15, 'store', 'shippingaddress'),
+(17, 'store', 'store');
 
 -- --------------------------------------------------------
 
@@ -361,39 +341,49 @@ CREATE TABLE `django_migrations` (
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_migrations`
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2020-06-27 12:42:34.971628'),
-(2, 'auth', '0001_initial', '2020-06-27 12:42:35.171683'),
-(3, 'admin', '0001_initial', '2020-06-27 12:42:35.721538'),
-(4, 'admin', '0002_logentry_remove_auto_add', '2020-06-27 12:42:35.886322'),
-(5, 'admin', '0003_logentry_add_action_flag_choices', '2020-06-27 12:42:35.895321'),
-(6, 'contenttypes', '0002_remove_content_type_name', '2020-06-27 12:42:35.970328'),
-(7, 'auth', '0002_alter_permission_name_max_length', '2020-06-27 12:42:36.017332'),
-(8, 'auth', '0003_alter_user_email_max_length', '2020-06-27 12:42:36.038334'),
-(9, 'auth', '0004_alter_user_username_opts', '2020-06-27 12:42:36.048334'),
-(10, 'auth', '0005_alter_user_last_login_null', '2020-06-27 12:42:36.096337'),
-(11, 'auth', '0006_require_contenttypes_0002', '2020-06-27 12:42:36.098338'),
-(12, 'auth', '0007_alter_validators_add_error_messages', '2020-06-27 12:42:36.107339'),
-(13, 'auth', '0008_alter_user_username_max_length', '2020-06-27 12:42:36.135341'),
-(14, 'auth', '0009_alter_user_last_name_max_length', '2020-06-27 12:42:36.155343'),
-(15, 'auth', '0010_alter_group_name_max_length', '2020-06-27 12:42:36.175343'),
-(16, 'auth', '0011_update_proxy_permissions', '2020-06-27 12:42:36.190345'),
-(17, 'sessions', '0001_initial', '2020-06-27 12:42:36.229348'),
-(18, 'main', '0001_initial', '2020-06-27 12:45:55.608464'),
-(19, 'package', '0001_initial', '2020-06-27 12:46:36.961143'),
-(20, 'categories', '0001_initial', '2020-06-27 12:47:12.055802'),
-(21, 'store', '0001_initial', '2020-06-27 12:47:39.327284'),
-(22, 'about', '0001_initial', '2020-06-27 12:48:11.167572'),
-(23, 'store', '0002_auto_20200627_2111', '2020-06-27 15:12:02.915973'),
-(24, 'store', '0003_store_product_file', '2020-07-07 13:58:08.009311'),
-(25, 'store', '0004_auto_20200708_1827', '2020-07-08 12:27:34.160840'),
-(26, 'store', '0005_auto_20200813_1722', '2020-08-13 11:22:11.159812');
+(1, 'about', '0001_initial', '2020-11-21 07:33:42.115242'),
+(2, 'about', '0002_auto_20201120_1711', '2020-11-21 07:33:42.266566'),
+(3, 'about', '0003_auto_20201120_2024', '2020-11-21 07:33:42.366925'),
+(4, 'contenttypes', '0001_initial', '2020-11-21 07:33:42.434470'),
+(5, 'auth', '0001_initial', '2020-11-21 07:33:42.704792'),
+(6, 'admin', '0001_initial', '2020-11-21 07:33:43.614906'),
+(7, 'admin', '0002_logentry_remove_auto_add', '2020-11-21 07:33:43.830853'),
+(8, 'admin', '0003_logentry_add_action_flag_choices', '2020-11-21 07:33:43.846540'),
+(9, 'contenttypes', '0002_remove_content_type_name', '2020-11-21 07:33:44.003519'),
+(10, 'auth', '0002_alter_permission_name_max_length', '2020-11-21 07:33:44.217474'),
+(11, 'auth', '0003_alter_user_email_max_length', '2020-11-21 07:33:44.340258'),
+(12, 'auth', '0004_alter_user_username_opts', '2020-11-21 07:33:44.356512'),
+(13, 'auth', '0005_alter_user_last_login_null', '2020-11-21 07:33:44.422715'),
+(14, 'auth', '0006_require_contenttypes_0002', '2020-11-21 07:33:44.429695'),
+(15, 'auth', '0007_alter_validators_add_error_messages', '2020-11-21 07:33:44.445136'),
+(16, 'auth', '0008_alter_user_username_max_length', '2020-11-21 07:33:44.555259'),
+(17, 'auth', '0009_alter_user_last_name_max_length', '2020-11-21 07:33:44.667996'),
+(18, 'auth', '0010_alter_group_name_max_length', '2020-11-21 07:33:44.780524'),
+(19, 'auth', '0011_update_proxy_permissions', '2020-11-21 07:33:44.793733'),
+(20, 'auth', '0012_alter_user_first_name_max_length', '2020-11-21 07:33:44.910004'),
+(21, 'categories', '0001_initial', '2020-11-21 07:33:44.968304'),
+(22, 'create', '0001_initial', '2020-11-21 07:33:45.027620'),
+(23, 'create', '0002_auto_20201119_1916', '2020-11-21 07:33:45.512792'),
+(24, 'main', '0001_initial', '2020-11-21 07:33:45.660197'),
+(25, 'main', '0002_customform', '2020-11-21 07:33:45.782421'),
+(26, 'package', '0001_initial', '2020-11-21 07:33:45.835950'),
+(27, 'sessions', '0001_initial', '2020-11-21 07:33:45.916695'),
+(28, 'store', '0001_initial', '2020-11-21 07:33:46.269877'),
+(29, 'store', '0002_auto_20200627_2111', '2020-11-21 07:33:46.991616'),
+(30, 'store', '0003_store_product_file', '2020-11-21 07:33:47.082536'),
+(31, 'store', '0004_auto_20200708_1827', '2020-11-21 07:33:47.093545'),
+(32, 'store', '0005_auto_20200813_1722', '2020-11-21 07:33:47.311316'),
+(33, 'store', '0006_auto_20201109_1858', '2020-11-21 07:33:47.464777'),
+(34, 'store', '0007_auto_20201119_1925', '2020-11-21 07:33:47.723606'),
+(35, 'store', '0008_auto_20201119_1926', '2020-11-21 07:33:47.910882'),
+(36, 'store', '0009_auto_20201119_1927', '2020-11-21 07:33:48.239840');
 
 -- --------------------------------------------------------
 
@@ -405,29 +395,14 @@ CREATE TABLE `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
   `expire_date` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_session`
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('33qaq29hu2muyntcnadkmifhjkwg9no7', 'NzJiNjgyNGVjODg4NDQyNTNlNGE2MjA5ZWM3NzhjNTkzMWUwZWZhNzp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYzk3YTk1MWM3OWEwODlhZDc5MDM1ZWQ1ZDg2ZDQzYWZmYzBiNTlmZCJ9', '2020-08-24 17:36:17.502297'),
-('3e7fmkvkpwzopu4f5hyr76fl5p7crrpz', 'YzY2OGIwZDA2YTM4M2ZlYzA1YTIwMjk1NmEyMGNmZDRiY2FmYWM2NTp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNGI5YTE4Y2YzYTUzM2I3MTRhM2FhMTZkMGZjNmI0ZTdiMTEzYmE0YyJ9', '2020-07-22 12:00:17.358693'),
-('7du6qhj6jxbb62jx6irv4jomlr8sw15c', 'YzY2OGIwZDA2YTM4M2ZlYzA1YTIwMjk1NmEyMGNmZDRiY2FmYWM2NTp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNGI5YTE4Y2YzYTUzM2I3MTRhM2FhMTZkMGZjNmI0ZTdiMTEzYmE0YyJ9', '2020-07-22 14:57:18.181658'),
-('7hbd10ayrkvr7ldui2ol656rqubj82ug', 'Y2NhYmZiM2RmZWM2ZjQ1MWQ5M2Q5NzhjYjdhMjViY2U2MjI4MjdkNDp7Il9hdXRoX3VzZXJfaWQiOiIxMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjMzOWI0ZjlkYTk3MWMyNGU0NTMxYWY2Mjk5ODU2NmU1Zjc0OTk2YSJ9', '2020-07-11 16:07:53.431479'),
-('83lv0ho5gh9f2pa6hrz3bynwrmlfuxdq', 'YjZmNDE3OGQ4OTQzMWE1MTllZGZhOGQ3MDM5YjQyNjMzNjJmNzIxNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NjczMWZkOTBmMDAyOWY0Yzg5OTEzODZmYTZhY2EzM2MzMDJhN2FiIn0=', '2020-07-11 18:06:18.383924'),
-('874ey4y1h4vu4zdcnise9bup5qnsxps9', 'YzY2OGIwZDA2YTM4M2ZlYzA1YTIwMjk1NmEyMGNmZDRiY2FmYWM2NTp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNGI5YTE4Y2YzYTUzM2I3MTRhM2FhMTZkMGZjNmI0ZTdiMTEzYmE0YyJ9', '2020-07-22 14:42:02.672574'),
-('cjuqxch2z8jctvw9mykaai3hq27yoi1a', 'OTM4MjlmNDYyMjYwM2U4YjM2MDg0MTA2NjQ3ZWNiYjBhZTE5ZTdiZDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiZmRhZTRhYmQyMDU1OGJiM2NkNTdlMmMyYjZmODIzZGI1OTI1YTc1In0=', '2020-08-27 10:48:09.630898'),
-('d8l6u6jspbif8t51zxs9co2x1phpcv7b', 'YzY2OGIwZDA2YTM4M2ZlYzA1YTIwMjk1NmEyMGNmZDRiY2FmYWM2NTp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNGI5YTE4Y2YzYTUzM2I3MTRhM2FhMTZkMGZjNmI0ZTdiMTEzYmE0YyJ9', '2020-07-22 14:27:00.990563'),
-('kutiz97v7m709nrpr029x317gs61ylb4', 'YzQxOWY2ZDNjZjQ3Mjg4YTIzYjIzMjAwZDEwZjczMTc5ZmFlZjdiODp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0NTRmMzkzNDIxMjA4YmUxZjQxODI0ZjAwNGYwNmFmYTI5YzkyZGE5In0=', '2020-07-11 18:42:50.125487'),
-('oaji4nz4u7ikc98zp8ipidy5no8oa2nm', 'ZjA3ZTg4YTIxNjFjNzIzOWFmNDcwODQ2ZGFmNmM5NTFkYWM1MzRlOTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlYjc0N2JkOTMxMDNhODdmMjUzMDUzY2M2ZDVlNmYwODFmZWM5YjU0In0=', '2020-07-21 13:58:39.184731'),
-('op57jaw2o51t8n8fdhykmlklht3mwmsf', 'OTM4MjlmNDYyMjYwM2U4YjM2MDg0MTA2NjQ3ZWNiYjBhZTE5ZTdiZDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiZmRhZTRhYmQyMDU1OGJiM2NkNTdlMmMyYjZmODIzZGI1OTI1YTc1In0=', '2020-08-27 11:23:37.190395'),
-('t5hkgc7ipg88owlce0mvjr0d2yrzi8m2', 'YzY2OGIwZDA2YTM4M2ZlYzA1YTIwMjk1NmEyMGNmZDRiY2FmYWM2NTp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNGI5YTE4Y2YzYTUzM2I3MTRhM2FhMTZkMGZjNmI0ZTdiMTEzYmE0YyJ9', '2020-07-21 13:28:22.019364'),
-('wwqp3rkud2s1xywmjerbsons73m1esg9', 'Y2NhYmZiM2RmZWM2ZjQ1MWQ5M2Q5NzhjYjdhMjViY2U2MjI4MjdkNDp7Il9hdXRoX3VzZXJfaWQiOiIxMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjMzOWI0ZjlkYTk3MWMyNGU0NTMxYWY2Mjk5ODU2NmU1Zjc0OTk2YSJ9', '2020-07-11 16:15:36.854912'),
-('zfi6r9gpfe3gboynw46t6inyl6u7xudj', 'OTM4MjlmNDYyMjYwM2U4YjM2MDg0MTA2NjQ3ZWNiYjBhZTE5ZTdiZDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiZmRhZTRhYmQyMDU1OGJiM2NkNTdlMmMyYjZmODIzZGI1OTI1YTc1In0=', '2020-09-15 15:48:18.477548'),
-('zj21x9ce318m1ywkjr8j8z1qwf60k778', 'ZDEyYjViMzM2NmIyZGExN2RkMzJjOGUxNmQ3MjZkZmMxODk0MzI3NDp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzIxODQ0MzA5NTBkN2NkMzU3OTlhNzBhZmE3NDcwOWJmYWRkMjRmMSJ9', '2020-07-17 04:47:22.114798'),
-('zw32wf8qqto8yv8zmqec6mezo3776m99', 'ZjA3ZTg4YTIxNjFjNzIzOWFmNDcwODQ2ZGFmNmM5NTFkYWM1MzRlOTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlYjc0N2JkOTMxMDNhODdmMjUzMDUzY2M2ZDVlNmYwODFmZWM5YjU0In0=', '2020-07-22 10:18:40.069742');
+('8zxcf9ytzmnyhwrqo7jnvyih206mf4sw', '.eJxVjEEOwiAQRe_C2hCghQGX7nuGZgamUjWQlHZlvLtt0oVu_3vvv8WI25rHrfEyzklchRaX340wPrkcID2w3KuMtazLTPJQ5EmbHGri1-10_w4ytrzXAcBxN7mOiAx4r1TEQEk75fvgLCAzq96mtFOwmqCjSB68NmRxMlZ8vtiaN6w:1kgQWf:7611hPmDgxlERAwrrMhES-8ex-Krptxfvw-wqvJpCY4', '2020-12-05 10:53:53.534878');
 
 -- --------------------------------------------------------
 
@@ -439,7 +414,7 @@ CREATE TABLE `overlay-links` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `link` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `overlay-links`
@@ -468,7 +443,7 @@ CREATE TABLE `packages` (
   `pack_sec_six` varchar(120) DEFAULT NULL,
   `pack_sec_seven` varchar(120) DEFAULT NULL,
   `pack_sec_eight` varchar(120) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `packages`
@@ -489,58 +464,23 @@ CREATE TABLE `product_details` (
   `id` int(11) NOT NULL,
   `slug` varchar(120) DEFAULT NULL,
   `title` varchar(120) DEFAULT NULL,
-  `category` varchar(120) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `img_one` varchar(100) DEFAULT NULL,
   `img_two` varchar(100) DEFAULT NULL,
   `img_three` varchar(100) DEFAULT NULL,
-  `product_description` longtext DEFAULT NULL,
+  `product_description` longtext,
   `product_file` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_details`
 --
 
-INSERT INTO `product_details` (`id`, `slug`, `title`, `category`, `price`, `img_one`, `img_two`, `img_three`, `product_description`, `product_file`) VALUES
-(1, 'prod_1', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO_9CaXtgb.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj_ggM2OMT.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF_DwzSHOu_dk1MUVA.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', ''),
-(2, 'prod_2', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(3, 'prod_3', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(4, 'prod_4', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(5, 'prod_5', 'Spellbreaker Stinger Transition', 'Video Animation', 50, 'product/image/Clash_Stream_Package_Store_Thumb_Final_MhBhsCH.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF_DwzSHOu.webp', 'Conjure the dark arts. Introducing \'Spellbreaker\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Spellbreaker Stream Package collection. Includes three color options and three unique rune patterns.\r\n\r\nSummon magical wards with a single click. An enchanted stinger transition, designed for necromancers, sorcerers, and battle-mages. Blending ancient hexes with themes of alchemy and astrology. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Spellbreaker comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(6, 'prod_6', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Panther-Premade.webp', 'product/image/Panther-Premade_BdiH71w.webp', 'product/image/Panther-Premade_Jx32Rd1.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', NULL),
-(7, 'prod_7', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(8, 'prod_8', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(9, 'prod_9', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(10, 'prod_10', 'Spellbreaker Stinger Transition', 'Video Animation', 50, 'product/image/Clash_Stream_Package_Store_Thumb_Final_MhBhsCH.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF_DwzSHOu.webp', 'Conjure the dark arts. Introducing \'Spellbreaker\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Spellbreaker Stream Package collection. Includes three color options and three unique rune patterns.\r\n\r\nSummon magical wards with a single click. An enchanted stinger transition, designed for necromancers, sorcerers, and battle-mages. Blending ancient hexes with themes of alchemy and astrology. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Spellbreaker comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(11, 'prod_11', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(12, 'prod_12', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(13, 'prod_13', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(14, 'prod_14', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(15, 'prod_15', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Panther-Premade.webp', 'product/image/Panther-Premade_BdiH71w.webp', 'product/image/Panther-Premade_Jx32Rd1.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', NULL),
-(16, 'prod_16', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(17, 'prod_17', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(18, 'prod_18', 'Spellbreaker Stinger Transition', 'Video Animation', 50, 'product/image/Clash_Stream_Package_Store_Thumb_Final_MhBhsCH.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF_DwzSHOu.webp', 'Conjure the dark arts. Introducing \'Spellbreaker\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Spellbreaker Stream Package collection. Includes three color options and three unique rune patterns.\r\n\r\nSummon magical wards with a single click. An enchanted stinger transition, designed for necromancers, sorcerers, and battle-mages. Blending ancient hexes with themes of alchemy and astrology. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Spellbreaker comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(19, 'prod_19', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(20, 'prod_20', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(21, 'prod_21', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Panther-Premade.webp', 'product/image/Panther-Premade_BdiH71w.webp', 'product/image/Panther-Premade_Jx32Rd1.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', NULL),
-(22, 'prod_22', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(23, 'prod_23', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(24, 'prod_24', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(25, 'prod_25', 'Spellbreaker Stinger Transition', 'Video Animation', 50, 'product/image/Clash_Stream_Package_Store_Thumb_Final_MhBhsCH.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF_DwzSHOu.webp', 'Conjure the dark arts. Introducing \'Spellbreaker\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Spellbreaker Stream Package collection. Includes three color options and three unique rune patterns.\r\n\r\nSummon magical wards with a single click. An enchanted stinger transition, designed for necromancers, sorcerers, and battle-mages. Blending ancient hexes with themes of alchemy and astrology. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Spellbreaker comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(26, 'prod_26', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Panther-Premade.webp', 'product/image/Panther-Premade_BdiH71w.webp', 'product/image/Panther-Premade_Jx32Rd1.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', NULL),
-(27, 'prod_27', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(28, 'prod_28', 'Libra Stream Package', 'Viper VIdeo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(29, 'prod_29', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Panther-Premade.webp', 'product/image/Panther-Premade_BdiH71w.webp', 'product/image/Panther-Premade_Jx32Rd1.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', NULL),
-(30, 'prod_30', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(31, 'prod_31', 'Libra Stream Package', 'Logo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(32, 'prod_32', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(33, 'prod_32', 'Spellbreaker Stinger Transition', 'Video Animation', 50, 'product/image/Clash_Stream_Package_Store_Thumb_Final_MhBhsCH.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF.webp', 'product/image/Clash_Stream_Package_Store_Thumb_Final_XEHRpiF_DwzSHOu.webp', 'Conjure the dark arts. Introducing \'Spellbreaker\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Spellbreaker Stream Package collection. Includes three color options and three unique rune patterns.\r\n\r\nSummon magical wards with a single click. An enchanted stinger transition, designed for necromancers, sorcerers, and battle-mages. Blending ancient hexes with themes of alchemy and astrology. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Spellbreaker comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(34, 'prod_34', 'Plasma Stream Alert', 'Video Animation', 20, 'product/image/Panther-Premade.webp', 'product/image/Panther-Premade_BdiH71w.webp', 'product/image/Panther-Premade_Jx32Rd1.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers.\r\n\r\nFunky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. \r\n\r\nOur most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', NULL),
-(35, 'prod_35', 'Valor Essentials Stream Package', 'Free', 0, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_vd3Qfsa.webp', 'This Package passes the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Alerts Setup, big Poggers.\r\n\r\nLocked & loaded. Introducing \'Valor Essentials\', a FREE new theme for your stream graphics. Overlays and alerts inspired by Valorant. A sleek, high-tech look blending minimalist themes and tactical layouts. Designed for cyber sharpshooters and FPS gods. Supports Twitch, YouTube, Mixer, and Facebook Gaming.\r\n\r\nFeaturing modular overlays and intermission screens, so you can build your own custom layouts. Just use the included SLOBS .overlay files and easy one-click setups for Streamlabs and StreamElements.\r\n\r\nPackage includes all the essential visuals: alerts, overlays, webcams, stream screens, stinger transitions, and Twitch panels. Available in animated and static options. Includes handy setup guide.', NULL),
-(36, 'prod_36', 'Libra Stream Package', 'Logo', 30, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_8zFmFWj.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', NULL),
-(37, 'prod_37', 'Libra Stinger Transition', 'Animation', 30, 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_GllJArh.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_LOuKrVV.webp', 'Cast a spell. Introducing \'Libra\', a new stinger transition for streamers on Twitch, Mixer, YouTube, and Facebook Gaming. Part of the Libra Stream Package collection. Includes five vibrant color options.\r\n\r\nSummon forest sprites with a single click. A magical stinger transition, designed for cozy late-night streams, MMORPG gaming, and ASMR sessions. Blending fairy tale themes and Harry Potter inspirations. Includes custom sound effects!\r\n\r\nUp your broadcast presentation with professional stinger transitions. Best used when switching scenes, exiting or entering gameplay, and more. Libra comes neatly packaged, featuring setup instructions and special readme guide.', 'new_file/jquery-validation-1.19.2.zip'),
-(38, 'new_prod21', 'Libra Stinger Transition Help', 'Logo', 12, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_94TWvtX_NxkMOE6.webp', 'product/image/Panther-Premade_L0MFIC5.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_irsi88i.webp', 'These alerts pass the highest marks of Streamlabs and StreamElements compatibility. Featuring 1-Click Setup, big Loggers. Funky, feel-good vibes. Introducing \'Plasma\', a groovy new alerts widget for your stream on Twitch, YouTube, Mixer, and Facebook Gaming. Inspired by lava lamps and molten elementals. A psychedelic look designed for transcendent hippies and creative-types. Part of the Plasma Stream Package collection. Our most innovative stream alerts yet. Adjust colors and shapes to fit your style. Choose from two alert layout styles: go big with vertical displays, or keep it low-key with horizontal banners. Includes editable titles to support any language or occasion! All 100% customizable with one-click setup for Streamlabs and StreamElements. Includes custom sound effects and a handy setup guide.', '');
+INSERT INTO `product_details` (`id`, `slug`, `title`, `category_id`, `price`, `img_one`, `img_two`, `img_three`, `product_description`, `product_file`) VALUES
+(1, 'prod_1', 'Libra Stinger Transition', 1, 50, 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_CYDEUbi.webp', 'product/image/Panther-Premade_pb48fml.webp', 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO_f2DINGp.webp', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', ''),
+(2, 'prod_2', 'Spellbreaker Stinger Transition', 3, 60, 'product/image/Valor_Essentials_Store_Thumb_cf43952e-cbef-48af-aef9-00f9e789be6e_o7vVgbO_bkxASIJ.webp', 'product/image/Beast-Hunter-Store-Thumb_ffd46332-f95f-4b29-87f4-baff133f0aec_TPSxofP.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_Gl_CI6VL3r.webp', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', ''),
+(3, 'prod_3', 'Plasma Stream Alert', 1, 120, 'product/image/Beast-Hunter-Store-Thumb_ffd46332-f95f-4b29-87f4-baff133f0aec_LBDtEb0.webp', 'product/image/Spellbreaker_Stingers_Store_Thumb_20f75cad-50ca-42e4-be47-2a65a0e57753_Gl_p9LfgNq.webp', 'product/image/Libra_Store_Thumb_be3c0f05-6d4e-464d-bf95-c78646c7e428_CYDEUbi_yh8HBtJ.webp', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '');
 
 -- --------------------------------------------------------
 
@@ -551,18 +491,18 @@ INSERT INTO `product_details` (`id`, `slug`, `title`, `category`, `price`, `img_
 CREATE TABLE `prod_category` (
   `id` int(11) NOT NULL,
   `category` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prod_category`
 --
 
 INSERT INTO `prod_category` (`id`, `category`) VALUES
-(1, 'Free'),
-(2, 'Logo'),
-(3, 'Animation'),
-(4, 'Video Animation'),
-(5, 'Viper Video');
+(1, 'Video Animation'),
+(2, 'Animation'),
+(3, 'Free'),
+(4, 'Viper VIdeo'),
+(5, 'Logo');
 
 -- --------------------------------------------------------
 
@@ -580,7 +520,7 @@ CREATE TABLE `social-links` (
   `twitter` varchar(100) DEFAULT NULL,
   `youtube` varchar(100) DEFAULT NULL,
   `tumbler` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -593,14 +533,7 @@ CREATE TABLE `store_customer` (
   `name` varchar(200) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `store_customer`
---
-
-INSERT INTO `store_customer` (`id`, `name`, `email`, `user_id`) VALUES
-(4, 'Shahed Talukder', 'shahedtalukder51@gmail.com', 14);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -614,14 +547,7 @@ CREATE TABLE `store_order` (
   `complete` tinyint(1) DEFAULT NULL,
   `transaction_id` varchar(200) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `store_order`
---
-
-INSERT INTO `store_order` (`id`, `date_ordered`, `complete`, `transaction_id`, `customer_id`) VALUES
-(3, '2020-07-03 04:47:22.130801', 0, NULL, 4);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -635,18 +561,7 @@ CREATE TABLE `store_orderitem` (
   `data_added` datetime(6) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `store_orderitem`
---
-
-INSERT INTO `store_orderitem` (`id`, `quantity`, `data_added`, `order_id`, `product_id`) VALUES
-(155, 1, '2020-08-11 17:57:58.073444', 3, 1),
-(156, 1, '2020-08-11 17:58:01.170259', 3, 3),
-(157, 1, '2020-08-11 17:58:02.894398', 3, 8),
-(158, 1, '2020-08-11 17:58:04.857561', 3, 9),
-(159, 1, '2020-08-11 17:58:09.297921', 3, 10);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -663,7 +578,7 @@ CREATE TABLE `store_shippingaddress` (
   `date_added` varchar(200) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -728,6 +643,18 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `custom`
+--
+ALTER TABLE `custom`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `custom_design`
+--
+ALTER TABLE `custom_design`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -774,7 +701,8 @@ ALTER TABLE `packages`
 --
 ALTER TABLE `product_details`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product_details_slug_e9a3a3e0` (`slug`);
+  ADD KEY `product_details_slug_e9a3a3e0` (`slug`),
+  ADD KEY `product_details_category_id_61790d28` (`category_id`);
 
 --
 -- Indexes for table `prod_category`
@@ -845,13 +773,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -869,25 +797,37 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `custom`
+--
+ALTER TABLE `custom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `custom_design`
+--
+ALTER TABLE `custom_design`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `overlay-links`
@@ -905,7 +845,7 @@ ALTER TABLE `packages`
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prod_category`
@@ -923,19 +863,19 @@ ALTER TABLE `social-links`
 -- AUTO_INCREMENT for table `store_customer`
 --
 ALTER TABLE `store_customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `store_order`
 --
 ALTER TABLE `store_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `store_orderitem`
 --
 ALTER TABLE `store_orderitem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `store_shippingaddress`
@@ -980,6 +920,12 @@ ALTER TABLE `auth_user_user_permissions`
 ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Constraints for table `product_details`
+--
+ALTER TABLE `product_details`
+  ADD CONSTRAINT `product_details_category_id_61790d28_fk_prod_category_id` FOREIGN KEY (`category_id`) REFERENCES `prod_category` (`id`);
 
 --
 -- Constraints for table `store_customer`
