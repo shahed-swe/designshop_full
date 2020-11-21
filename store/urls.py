@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^update_item/$',views.updateItem,name='updateItem'),
     url(r'^checkout/$',views.checkout, name="checkout"),
     url(r'^checkout-submit/$',views.checkout_submit, name="checkout_submit"),
+    url(r'^addproduct/$', views.addProduct, name="addProduct"),
 ]

@@ -1,0 +1,48 @@
+{%extends 'user_base.html'%}
+<!-- extending base -->
+{%block main_content%}
+<!-- main block start -->
+<style>
+    section {
+        padding-top: 100px;
+    }
+</style>
+<section>
+
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-10 col-md-10 col-sm-8">
+                <form method="POST" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <!-- csrf token generated -->
+                    <div class="form-row">
+                        <div class="form-group col-12">{{form.slug}}</div>
+                        <div class="form-group col-12">{{form.title}}</div>
+                        <div class="form-group col-6">{{form.category}}</div>
+                        <div class="form-group col-6">{{form.price}}</div>
+                        <div class="form-group col-12">{{form.img_one}}</div>
+                        <div class="form-group col-12">{{form.img_two}}</div>
+                        <div class="form-group col-12">{{form.img_three}}</div>
+                        <div class="form-group col-12">{{form.product_file}}</div>
+                        <div class="form-group col-12">{{form.product_description}}</div>
+                    </div>
+                    <button class="btn btn-outline-primary shadow-none btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- main block ends -->
+{%endblock main_content%}
+<!--  -->
+{%block scripts%}
+<!--  -->
+<script>
+    $(document).ready(function() {
+        $('#id_category').attr('class', 'form-control')
+    })
+</script>
+<!--  -->
+{%endblock scripts%}

@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 import json
 import twocheckout
 from twocheckout import TwocheckoutError
+from .forms import addproductForm
 # from django.core.context_processors import csrf
 # Create your views here.
 
@@ -196,3 +197,17 @@ def checkout_submit(request):
         return JsonResponse(result.responseCode, safe=False)
     except TwocheckoutError as error:
         return JsonResponse(error.msg, safe=False)
+
+
+def addProduct(request):
+    if request.method == "POST":
+        form = addproductForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                print(form)
+                # form.save()
+            except:
+                pass
+    form = addproductForm()
+
+    return render(request, 'front/addproduct.html',{"title":"Add Product", "form":form})
